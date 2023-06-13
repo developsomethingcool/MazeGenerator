@@ -393,7 +393,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2670ceed507b48c49b64345a19cd85e1, type: 3}
   m_Name: 
@@ -430,8 +430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837af8a1937ccae4f9c22ce0604206d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mazeWidth: 40
-  mazeHeight: 40
+  mazeWidth: 30
+  mazeHeight: 30
   startX: 5
   startY: 5
 --- !u!4 &1776913867
@@ -504,6 +504,38 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5787504246344955032, guid: 57e284c2eabfaa84ba8a5f1d392a5837, type: 3}
   m_PrefabInstance: {fileID: 5787504245647660798}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2081297387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2850762822139393560, guid: f56985d37272e7a49a6e446044a02f23, type: 3}
+  m_PrefabInstance: {fileID: 8637527897741602360}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2081297390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081297387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d51cdae144d1f57479fc932cdc68a246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2081297391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081297387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4a64ef84eb0744cafccdb99eb37a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapGenerator: {fileID: 2081297390}
+  TrapCellPrefab: {fileID: 2081297387}
+  CellSize: 1
 --- !u!1001 &5787504245647660798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -614,7 +646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2850762822139393562, guid: f56985d37272e7a49a6e446044a02f23, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.297
+      value: -0.14
       objectReference: {fileID: 0}
     - target: {fileID: 2850762822139393562, guid: f56985d37272e7a49a6e446044a02f23, type: 3}
       propertyPath: m_LocalPosition.y

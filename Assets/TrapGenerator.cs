@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class TrapGenerator : MonoBehaviour
 {
-    public TrapCell[,] GetTrap()
+    public TrapCell[] GetTrap()
     {
-        TrapCell[,] trap;
+        TrapCell[] trap;
 
-        trap = new TrapCell[5, 1];
+        trap = new TrapCell[5];
         for (int x = 0; x < 5; x++)
         {
-            trap[x, 0] = new TrapCell(x, 0);
+            trap[x] = new TrapCell(x, 1);
         }
         return trap;
 
