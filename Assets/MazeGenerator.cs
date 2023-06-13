@@ -27,7 +27,7 @@ public class MazeGenerator : MonoBehaviour
 
     List<Direction> directions = new List<Direction>
     {
-        Direction.Up, Direction. Down, Direction.Left, Direction.Right,
+        Direction.Up, Direction.Down, Direction.Left, Direction.Right,
     };
 
 
@@ -202,5 +202,6 @@ public class MazeCell
     }    
     
 }
+
 
 

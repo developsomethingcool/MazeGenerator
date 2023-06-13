@@ -8,7 +8,7 @@ public class MazeRender : MonoBehaviour
     [SerializeField] GameObject MazeCellPrefab;
     // This the physical size of our maze cells. Getting this wrong will result in overlapping
     // or visible gaps between each cell.
-    public float CellSize = 3f;
+    public float CellSize = 1f;
     // Start is called before the first frame update
     void Start()
     {
