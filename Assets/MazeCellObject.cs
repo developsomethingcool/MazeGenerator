@@ -9,6 +9,7 @@ public class MazeCellObject : MonoBehaviour
     [SerializeField] GameObject bottomWall;
     [SerializeField] GameObject rightWall;
     [SerializeField] GameObject leftWall;
+    [SerializeField] GameObject floor;
     public void Init(bool top, bool bottom, bool right, bool left)
     {
         topWall.SetActive(top);

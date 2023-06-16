@@ -30,6 +30,10 @@ public class MazeGenerator : MonoBehaviour
         Direction.Up, Direction.Down, Direction.Left, Direction.Right,
     };
 
+    public void getWidth()
+    {
+        Debug.Log(mazeWidth);
+    }
 
     List<Direction> GetRandomDirections()
     {

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class TrapGenerator : MonoBehaviour
 {
+    //[SerializeField] MazeGenerator mazeGenerator;
+
     public TrapCell[] GetTrap()
     {
+        
         TrapCell[] trap;
 
         trap = new TrapCell[5];
