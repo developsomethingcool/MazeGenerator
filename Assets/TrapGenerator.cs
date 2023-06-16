@@ -4,17 +4,38 @@ using UnityEngine;
 
 public class TrapGenerator : MonoBehaviour
 {
-    //[SerializeField] MazeGenerator mazeGenerator;
+    [SerializeField] MazeGenerator mazeGenerator;
+    public int mazeWidth;
+    public int mazeLength;
+    int numberOfTraps = 5; 
 
     public TrapCell[] GetTrap()
     {
-        
+        //get parameters from Maze
+        MazeCell[,] maze = mazeGenerator.GetMaze();
         TrapCell[] trap;
+        mazeLength = maze.GetLength(0);
+        mazeWidth = maze.GetLength(1);
 
-        trap = new TrapCell[5];
-        for (int x = 0; x < 5; x++)
+        //generate indices for traps
+        Point[] positionsOfTraps = new Point[numberOfTraps];
+        Point p;
+        for (int i = 0; i < numberOfTraps; i++)
         {
-            trap[x] = new TrapCell(x, 1);
+            p = new Point(Random.Range(0, mazeLength), Random.Range(0, mazeWidth));
+            positionsOfTraps[i] = p;
+        }
+
+        // Print the generated array
+        foreach (Point number in positionsOfTraps)
+        {
+            Debug.Log(number.getX());
+        }
+
+        trap = new TrapCell[numberOfTraps];
+        for (int x = 0; x < numberOfTraps; x++)
+        {
+            trap[x] = new TrapCell(positionsOfTraps[x].getX(), positionsOfTraps[x].getY());
         }
         return trap;
 
@@ -40,6 +61,28 @@ public class TrapCell
         this.x = x;
         this.y = y;
 
+    }
+
+}
+
+//class of coordinated of each Poit
+public class Point
+{
+    public int x;
+    public int y;
+
+    public Point(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return this.x;
+    }
+    public int getY()
+    {
+        return this.y;
     }
 
 }
