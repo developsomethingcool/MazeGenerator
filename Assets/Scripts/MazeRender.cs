@@ -6,12 +6,17 @@ public class MazeRender : MonoBehaviour
 {
     [SerializeField] MazeGenerator mazeGenerator;
     [SerializeField] GameObject MazeCellPrefab;
+    [SerializeField] TrapGenerator trapGenerator;
+
+
     // This the physical size of our maze cells. Getting this wrong will result in overlapping
     // or visible gaps between each cell.
     public float CellSize = 1f;
     // Start is called before the first frame update
     void Start()
     {
+        //get our Trap script to place it 
+        TrapCell[] trap = trapGenerator.GetTrap();
         // Get our MazeGenerator script to make us a maze.
         MazeCell[,] maze = mazeGenerator.GetMaze();
         // Loop through every cell in the maze.
@@ -19,6 +24,7 @@ public class MazeRender : MonoBehaviour
         {
             for (int y = 0; y < mazeGenerator.mazeHeight; y++)
             {
+                
                 // Instantiate a new maze cell prefab as a child of the MazeRenderer object.
                 GameObject newCell = Instantiate(MazeCellPrefab, new Vector3((float)x * CellSize, 0f, (float)y * CellSize), Quaternion.identity);
                 // Get a reference to the cell's MazeCellPrefab script.
@@ -30,13 +36,31 @@ public class MazeRender : MonoBehaviour
                 // edge of the maze.
                 bool right = false;
                 bool bottom = false;
+                bool floor = true;
                 if (x == mazeGenerator.mazeWidth - 1) right = true;
                 if (y == 0) bottom = true;
 
-                mazeCell.Init(top, bottom, right, left);
+                
+                //floor of Maze is deactivated if its on the same position with trap
+                foreach(TrapCell trapCell in trap)
+                {
+                    if(trapCell.y == y && trapCell.x == x)
+                    {
+                        floor = false;
+                        Debug.Log("Heights;" + trapCell.y);
+                        Debug.Log("Weights;" + trapCell.x);
+                        Debug.Log("x;" + x);
+                        Debug.Log("y;" + y);
+                        Debug.Log("Next point!");
+                    }
+                } 
+
+                
+
+                mazeCell.Init(top, bottom, right, left, floor);
             }
         }
     }
 
-    
+
 }

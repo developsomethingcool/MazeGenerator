@@ -7,38 +7,57 @@ public class TrapGenerator : MonoBehaviour
     [SerializeField] MazeGenerator mazeGenerator;
     public int mazeWidth;
     public int mazeLength;
-    int numberOfTraps = 5; 
+    int numberOfTraps = 10;
+    private TrapCell[] cells;
+    public TrapGenerator instance;
+
+    /*private void Start()
+    {
+        cells = GetTrap();
+    } */
+
+    public TrapGenerator()
+    {
+
+    }
+
+   /* void Awake()
+    {
+        Debug.Log("Wake up method functions!");
+    }*/
 
     public TrapCell[] GetTrap()
     {
         //get parameters from Maze
         MazeCell[,] maze = mazeGenerator.GetMaze();
-        TrapCell[] trap;
+
         mazeLength = maze.GetLength(0);
         mazeWidth = maze.GetLength(1);
 
         //generate indices for traps
-        Point[] positionsOfTraps = new Point[numberOfTraps];
-        Point p;
+        TrapCell[] positionsOfTraps = new TrapCell[numberOfTraps];
+        TrapCell p;
         for (int i = 0; i < numberOfTraps; i++)
         {
-            p = new Point(Random.Range(0, mazeLength), Random.Range(0, mazeWidth));
+            p = new TrapCell(Random.Range(0, mazeLength), Random.Range(0, mazeWidth));
+            //p = new TrapCell(1+i,1);
             positionsOfTraps[i] = p;
         }
 
-        // Print the generated array
-        foreach (Point number in positionsOfTraps)
-        {
-            Debug.Log(number.getX());
-        }
 
+        /*
         trap = new TrapCell[numberOfTraps];
         for (int x = 0; x < numberOfTraps; x++)
         {
-            trap[x] = new TrapCell(positionsOfTraps[x].getX(), positionsOfTraps[x].getY());
-        }
-        return trap;
+            trap[x] = new TrapCell(positionsOfTraps[x].x, positionsOfTraps[x].y);
+        }*/
+        this.cells = positionsOfTraps;
+        return  positionsOfTraps;
 
+    }
+
+    public TrapCell[] GetterTrap(){
+        return this.cells;
     }
 
 }
