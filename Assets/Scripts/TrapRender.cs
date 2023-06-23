@@ -25,7 +25,7 @@ public class TrapRender : MonoBehaviour
         {   
                 // Instantiate a new maze cell prefab as a child of the MazeRenderer object.
                 GameObject newTrap = Instantiate(TrapCellPrefab, new Vector3((float)trap[x].x * CellSize, -1f, (float)trap[x].y * CellSize), Quaternion.identity);
-            Debug.Log("This particular MazeCell has to be modified!");  
+            
             //maze[trap[x].x, trap[x].y].setVisibility(false);
                 // Get a reference to the cell's MazeCellPrefab script.
                 //TrapCellObject trapCell = newTrap.GetComponent<TrapCellObject>();

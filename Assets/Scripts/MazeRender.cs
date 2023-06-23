@@ -47,11 +47,7 @@ public class MazeRender : MonoBehaviour
                     if(trapCell.y == y && trapCell.x == x)
                     {
                         floor = false;
-                        Debug.Log("Heights;" + trapCell.y);
-                        Debug.Log("Weights;" + trapCell.x);
-                        Debug.Log("x;" + x);
-                        Debug.Log("y;" + y);
-                        Debug.Log("Next point!");
+                       
                     }
                 } 
 
