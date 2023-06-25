@@ -144,15 +144,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4737150997202725340, guid: 7b0446432099da749839e402ef6a3d3a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 4737150997202725340, guid: 7b0446432099da749839e402ef6a3d3a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 4737150997202725340, guid: 7b0446432099da749839e402ef6a3d3a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 4737150997202725340, guid: 7b0446432099da749839e402ef6a3d3a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -743,7 +743,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapGenerator: {fileID: 2105933267}
-  TrapCellPrefab: {fileID: 2850762822139393560, guid: f56985d37272e7a49a6e446044a02f23, type: 3}
+  TrapCellPrefab_lava: {fileID: 2850762822139393560, guid: f56985d37272e7a49a6e446044a02f23, type: 3}
+  TrapCellPrefab_cylinder: {fileID: 2037562294129695329, guid: 8976f93d611288247bacc85fec6947a6, type: 3}
+  TrapCellPrefab_sphere: {fileID: 8780701527090567737, guid: 7abdf9f065f391941b5941492be1fe16, type: 3}
   CellSize: 1
   trapCounter: 0
 --- !u!114 &2105933267
@@ -761,7 +763,6 @@ MonoBehaviour:
   mazeGenerator: {fileID: 1776913866}
   mazeWidth: 0
   mazeLength: 0
-  instance: {fileID: 0}
 --- !u!4 &2105933268
 Transform:
   m_ObjectHideFlags: 0

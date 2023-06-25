@@ -42,8 +42,13 @@ public class PlayerMovement : MonoBehaviour
         }
         if (rb.position.y < -0.4f)
         {
-            FindObjectOfType<GameManage>().EndGame();
+            Invoke("DelayedEndGame", 0.1f);
+            //FindObjectOfType<GameManage>().EndGame();
         }
 
+    }
+    void DelayedEndGame()
+    {
+        FindObjectOfType<GameManage>().EndGame();
     }
 }

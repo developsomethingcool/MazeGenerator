@@ -7,9 +7,12 @@ public class TrapGenerator : MonoBehaviour
     [SerializeField] MazeGenerator mazeGenerator;
     public int mazeWidth;
     public int mazeLength;
-    int numberOfTraps = 20;
+    int numberOfTraps = 40;
+    //store traps
     private TrapCell[] cells;
-    public TrapGenerator instance;
+    //store types of the traps
+    private int[] typesTraps;
+
 
     /*private void Start()
     {
@@ -36,28 +39,31 @@ public class TrapGenerator : MonoBehaviour
 
         //generate indices for traps
         TrapCell[] positionsOfTraps = new TrapCell[numberOfTraps];
+        int[] typesTraps = new int[numberOfTraps];
         TrapCell p;
+        
         for (int i = 0; i < numberOfTraps; i++)
         {
             p = new TrapCell(Random.Range(0, mazeLength), Random.Range(0, mazeWidth));
-            //p = new TrapCell(1+i,1);
             positionsOfTraps[i] = p;
+            Debug.Log("Number outputed!");
+            typesTraps[i] = Random.Range(0, 3);
+            
+
         }
 
-
-        /*
-        trap = new TrapCell[numberOfTraps];
-        for (int x = 0; x < numberOfTraps; x++)
-        {
-            trap[x] = new TrapCell(positionsOfTraps[x].x, positionsOfTraps[x].y);
-        }*/
         this.cells = positionsOfTraps;
+        this.typesTraps = typesTraps;
         return  positionsOfTraps;
 
     }
 
     public TrapCell[] GetterTrap(){
         return this.cells;
+    }
+    public int[] GetterTrapType()
+    {
+        return this.typesTraps;
     }
 
 }
@@ -80,28 +86,6 @@ public class TrapCell
         this.x = x;
         this.y = y;
 
-    }
-
-}
-
-//class of coordinated of each Poit
-public class Point
-{
-    public int x;
-    public int y;
-
-    public Point(int x, int y)
-    {
-        this.x = x;
-        this.y = y;
-    }
-
-    public int getX() {
-        return this.x;
-    }
-    public int getY()
-    {
-        return this.y;
     }
 
 }

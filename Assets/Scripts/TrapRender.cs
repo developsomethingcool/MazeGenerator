@@ -8,7 +8,11 @@ public class TrapRender : MonoBehaviour
     //[SerializeField] MazeGenerator mazeGenerator;
 
     [SerializeField] TrapGenerator trapGenerator;
-    [SerializeField] GameObject TrapCellPrefab;
+    //there are a few types of prefabs
+    [SerializeField] GameObject TrapCellPrefab_lava;
+    [SerializeField] GameObject TrapCellPrefab_cylinder;
+    [SerializeField] GameObject TrapCellPrefab_sphere;
+
     public float CellSize = 1f;
     public int trapCounter = 0;
 
@@ -16,6 +20,7 @@ public class TrapRender : MonoBehaviour
     void Start()
     {
         TrapCell[] trap = trapGenerator.GetterTrap();
+        int[] trapType = trapGenerator.GetterTrapType();
         // Loop through every cell in the maze.
 
         //get maze to modify visibility of floor
@@ -24,14 +29,26 @@ public class TrapRender : MonoBehaviour
         for (int x = 0; x < trap.Length; x++)
         {   
                 // Instantiate a new maze cell prefab as a child of the MazeRenderer object.
-                GameObject newTrap = Instantiate(TrapCellPrefab, new Vector3((float)trap[x].x * CellSize, -1f, (float)trap[x].y * CellSize), Quaternion.identity);
-            
+            if(trapType[x] == 0){
+                GameObject newTrap = Instantiate(TrapCellPrefab_lava, new Vector3((float)trap[x].x * CellSize, -1f, (float)trap[x].y * CellSize), Quaternion.identity);
+
+            }if (trapType[x] == 1)
+            {
+                GameObject newTrap = Instantiate(TrapCellPrefab_cylinder, new Vector3((float)trap[x].x * CellSize, 0f, (float)trap[x].y * CellSize), Quaternion.identity);
+
+            }
+            if (trapType[x] == 2)
+            {
+                GameObject newTrap = Instantiate(TrapCellPrefab_sphere, new Vector3((float)trap[x].x * CellSize, 0f, (float)trap[x].y * CellSize), Quaternion.identity);
+
+            }
+
             //maze[trap[x].x, trap[x].y].setVisibility(false);
-                // Get a reference to the cell's MazeCellPrefab script.
-                //TrapCellObject trapCell = newTrap.GetComponent<TrapCellObject>();
-                //trapCell.Init(true, true, true, true);
-                newTrap.name = "Trap" + trapCounter.ToString();
-                trapCounter++;        
+            // Get a reference to the cell's MazeCellPrefab script.
+            //TrapCellObject trapCell = newTrap.GetComponent<TrapCellObject>();
+            //trapCell.Init(true, true, true, true);
+            //newTrap.name = "Trap" + trapCounter.ToString();
+            //trapCounter++;        
         }
 
     }
