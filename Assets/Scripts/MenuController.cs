@@ -13,8 +13,7 @@ public class MenuController : MonoBehaviour
     {
         if (LoadingSettings.showRespawnMenu)
         {
-            ShowMainMenu();
-            //ShowGameoverMenu();
+            ShowGameoverMenu();
         }
         else
         {
@@ -25,7 +24,13 @@ public class MenuController : MonoBehaviour
     public void PlayGame()
     {
         Debug.Log("Inside of player menu!!!!!!!!!!!!!!!!!!!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Gameplay");
+    }
+
+    public void RestartGame()
+    {
+        Debug.Log("Inside of player menu!!!!!!!!!!!!!!!!!!!");
+        SceneManager.LoadScene("Gameplay");
     }
 
     public void ShowMainMenu()

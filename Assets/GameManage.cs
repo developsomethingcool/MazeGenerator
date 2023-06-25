@@ -8,20 +8,15 @@ public class GameManage : MonoBehaviour
     bool gameEnded = false;
     public void EndGame()
     {
-        if (gameEnded == false)
-        {
-            gameEnded = true;
-            Debug.Log("Game over!");
-            Restart();
-        }
-
+        Debug.Log("Game over!");
+        Restart();
     }
 
     void Restart()
     {
         LoadingSettings.showRespawnMenu = true;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("Menu");
 
         MenuController menuController = FindObjectOfType<MenuController>();
 

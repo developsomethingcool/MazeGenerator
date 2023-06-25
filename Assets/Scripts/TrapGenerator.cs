@@ -7,7 +7,7 @@ public class TrapGenerator : MonoBehaviour
     [SerializeField] MazeGenerator mazeGenerator;
     public int mazeWidth;
     public int mazeLength;
-    int numberOfTraps = 10;
+    int numberOfTraps = 20;
     private TrapCell[] cells;
     public TrapGenerator instance;
 
