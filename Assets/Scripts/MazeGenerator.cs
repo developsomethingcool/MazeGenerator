@@ -6,7 +6,7 @@ public class MazeGenerator : MonoBehaviour
 {
 
     [Range(5, 500)]
-    public int mazeWidth = 5, mazeHeight = 5;
+    public int mazeWidth = 30, mazeHeight = 30;
     public int startX, startY;
     MazeCell[,] maze;
     Vector2Int currentCell;
