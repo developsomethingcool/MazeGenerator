@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c060dc70def0b2d4a9d6df0a333dc75d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap_Cylinder
       objectReference: {fileID: 0}
+    - target: {fileID: 4716343234299636478, guid: 44e44c98c250222469c2839aff02e297, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c060dc70def0b2d4a9d6df0a333dc75d, type: 2}
     - target: {fileID: 4851962854496631167, guid: 44e44c98c250222469c2839aff02e297, type: 3}
       propertyPath: m_RootOrder
       value: 1

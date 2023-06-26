@@ -135,6 +135,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4737150997202725339, guid: 7b0446432099da749839e402ef6a3d3a, type: 3}
+      propertyPath: m_Mass
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737150997202725339, guid: 7b0446432099da749839e402ef6a3d3a, type: 3}
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
@@ -198,6 +202,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 4737150997202725342, guid: 7b0446432099da749839e402ef6a3d3a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 216f4a257da3d964f8076f89162f3a9c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b0446432099da749839e402ef6a3d3a, type: 3}
 --- !u!1 &374068220
@@ -696,8 +704,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1857601929}
-  forwardForce: 35
-  sidewaysForce: 35
+  forwardForce: 25
+  sidewaysForce: 25
   jumpforce: 4
 --- !u!114 &1857601938
 MonoBehaviour:
