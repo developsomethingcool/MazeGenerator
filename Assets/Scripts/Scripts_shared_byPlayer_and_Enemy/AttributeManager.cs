@@ -193,7 +193,6 @@ public class AttributeManager : MonoBehaviour
         {
             // If an exception occurs, log the error message and set atm to null
             Debug.Log(e);
-            Debug.Log("WHELP");
             atm = null;
         }
 
