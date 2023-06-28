@@ -8,6 +8,8 @@ public class MazeRender : MonoBehaviour
     [SerializeField] MazeGenerator mazeGenerator;
     [SerializeField] GameObject MazeCellPrefab;
     [SerializeField] TrapGenerator trapGenerator;
+    [SerializeField] GoalAreaRender goalArea;
+
 
     public NavMeshSurface nms;
 
@@ -22,6 +24,9 @@ public class MazeRender : MonoBehaviour
         TrapCell[] trap = trapGenerator.GetTrap();
         // Get our MazeGenerator script to make us a maze.
         MazeCell[,] maze = mazeGenerator.GetMaze();
+        //get positions of goal area
+        Vector3 newPosition = goalArea.getGoalAreaPosition();
+
         // Loop through every cell in the maze.
         for (int x = 0; x < mazeGenerator.mazeWidth; x++)
         {
@@ -52,9 +57,16 @@ public class MazeRender : MonoBehaviour
                         floor = false;
                        
                     }
-                } 
+                }
 
-                
+                //make a floor in position of GoalArea invisible
+                if (newPosition.y == y && newPosition.x == x)
+                {
+                    floor = false;
+
+                }
+
+
 
                 mazeCell.Init(top, bottom, right, left, floor);
             }
