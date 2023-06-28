@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MazeRender : MonoBehaviour
 {
     [SerializeField] MazeGenerator mazeGenerator;
     [SerializeField] GameObject MazeCellPrefab;
     [SerializeField] TrapGenerator trapGenerator;
+
+    public NavMeshSurface nms;
 
 
     // This the physical size of our maze cells. Getting this wrong will result in overlapping
@@ -56,6 +59,8 @@ public class MazeRender : MonoBehaviour
                 mazeCell.Init(top, bottom, right, left, floor);
             }
         }
+
+        nms.BuildNavMesh();
     }
 
 

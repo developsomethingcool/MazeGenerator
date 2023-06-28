@@ -127,6 +127,13 @@ public class PlayerMovment : MonoBehaviour
             pB.drag = 0;
         }
 
+        if (pB.position.y - (startYScale/0.5f) + 0.1f < -1.8f)
+        {
+            Debug.Log(pB.position.y - (startYScale / 0.5f) + 0.1f);
+            Invoke("DelayedEndGame", 0.1f);
+            //FindObjectOfType<GameManage>().EndGame();
+        }
+
         //Saving the current velocity so it can be viewed in the editor while running
         speed = pB.velocity.magnitude;
     }
@@ -369,4 +376,10 @@ public class PlayerMovment : MonoBehaviour
         Debug.Log("ForceAllyed");
 
     }
+    //end the game
+    private void DelayedEndGame()
+    {
+        FindObjectOfType<GameManage>().EndGame();
+    }
+
 }
