@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GoalAreaRender: MonoBehaviour
 {
-    [SerializeField] GameObject GoalArea;
+    [SerializeField] GameObject GoalArea_prefab;
     [SerializeField] MazeGenerator mazeGenerator;
 
     public float GoalAreaSize = 1f;
@@ -12,9 +12,11 @@ public class GoalAreaRender: MonoBehaviour
 
     void Start()
     {
-         newCell = Instantiate(GoalArea, new Vector3((float)Random.Range(mazeGenerator.mazeHeight-10, mazeGenerator.mazeHeight) * GoalAreaSize, 0f, (float)Random.Range(mazeGenerator.mazeWidth - 10, mazeGenerator.mazeWidth) * GoalAreaSize), Quaternion.identity);
+         newCell = Instantiate(GoalArea_prefab, new Vector3((float)Random.Range(mazeGenerator.mazeHeight-10, mazeGenerator.mazeHeight) * GoalAreaSize, 0f, (float)Random.Range(mazeGenerator.mazeWidth - 10, mazeGenerator.mazeWidth) * GoalAreaSize), Quaternion.identity);
         
     }
+
+   
 
     public Vector3 getGoalAreaPosition()
     {
