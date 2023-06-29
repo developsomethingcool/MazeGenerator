@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        Debug.Log("Inside of player menu!!!!!!!!!!!!!!!!!!!");
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
