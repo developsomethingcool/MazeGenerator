@@ -11,8 +11,6 @@ public class Axe_script : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);  // Output the tag of the collided object to the console for debugging purposes
-
         // Check if the tag of the collided object matches the target tag we specified
         if (targetTag.Equals(other.gameObject.tag))
         {
