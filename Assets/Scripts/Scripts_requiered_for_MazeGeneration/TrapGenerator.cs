@@ -46,7 +46,7 @@ public class TrapGenerator : MonoBehaviour
         {
             p = new TrapCell(Random.Range(0, mazeLength), Random.Range(0, mazeWidth));
             positionsOfTraps[i] = p;
-            Debug.Log("Number outputed!");
+         
             typesTraps[i] = Random.Range(0, 3);
             
 
