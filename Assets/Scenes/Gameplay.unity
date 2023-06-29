@@ -1750,6 +1750,7 @@ MonoBehaviour:
   attackcooldown: 2
   healthbarScript: {fileID: 9169160338539139500}
   dead: 0
+  player: 1
 --- !u!114 &2294936500688443492
 MonoBehaviour:
   m_ObjectHideFlags: 3

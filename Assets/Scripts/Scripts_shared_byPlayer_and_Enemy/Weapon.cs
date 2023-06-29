@@ -80,6 +80,7 @@ public class Weapon : MonoBehaviour
             {
                 if (!player) //When carryer isn't the player
                 {
+
                     dealDamageToPlayer(); // Deal damage to the player character
                 }
                 else
@@ -117,6 +118,8 @@ public class Weapon : MonoBehaviour
 
     private void dealDamageToPlayer()
     {
+        isCheckingCollision = false;
+        Debug.Log("Dealing Damage to Player");
         carryer.DealDamage(GameObject.Find("Player")); // Deal damage to the player character
     }
 

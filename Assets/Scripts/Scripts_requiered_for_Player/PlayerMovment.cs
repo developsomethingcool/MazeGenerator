@@ -59,6 +59,7 @@ public class PlayerMovment : MonoBehaviour
     public Transform orientation;  // Reference to the orientation transform
     float hInput;
     float vInput;
+    private AttributeManager at;
 
     public MovmementState state;  // Current movement state of the player
 
@@ -92,6 +93,7 @@ public class PlayerMovment : MonoBehaviour
 
         wallCkeckDistance = transform.localScale.z * 1.25f;
         yPositionWallRunning = transform.position.y + wallrunnningHight;
+        at = gameObject.GetComponent<AttributeManager>();
     }
 
     /******************************************************
@@ -101,6 +103,7 @@ public class PlayerMovment : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+
     }
 
     // Update is called once per frame
@@ -127,7 +130,7 @@ public class PlayerMovment : MonoBehaviour
             pB.drag = 0;
         }
 
-        if (pB.position.y - (startYScale/0.5f) + 0.1f < -1.8f)
+        if (pB.position.y - (startYScale/0.5f) + 0.1f < -1.8f || at.dead)
         {
             Debug.Log(pB.position.y - (startYScale / 0.5f) + 0.1f);
             Invoke("DelayedEndGame", 0.1f);
@@ -212,6 +215,7 @@ public class PlayerMovment : MonoBehaviour
             {
                 wallrunning = true;
                 yPositionWallRunning = pB.position.y + wallrunnningHight;
+                pB.position = new Vector3(pB.position.x, yPositionWallRunning, pB.position.z);
                 
                 pB.useGravity = false;  
                 if (!stopcalled)

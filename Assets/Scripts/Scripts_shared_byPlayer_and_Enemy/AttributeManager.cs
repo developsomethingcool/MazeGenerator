@@ -22,6 +22,7 @@ public class AttributeManager : MonoBehaviour
     public float lifeRegenRate;
     public float jumps;
     public float attackcooldown;
+    private float healRegenDelay = 5f;
 
     [Header("References")]
     public Healthbar_Script healthbarScript;
@@ -30,6 +31,7 @@ public class AttributeManager : MonoBehaviour
     public bool dead = false;
     private bool healthregenActive = false;
     private float maxHealth;
+    public bool player = false;
 
 
     // Start is called before the first frame update
@@ -40,18 +42,24 @@ public class AttributeManager : MonoBehaviour
 
         // Store the maximum health value
         maxHealth = health;
-
-        try
+        if (player)
         {
-            // Get the number of jumps allowed from the PlayerMovment component and store it in the 'jumps' variable
-            jumps = gameObject.GetComponent<PlayerMovment>().getJumpsAllowed();
-        }
-        catch (Exception e)
+            try
+            {
+                // Get the number of jumps allowed from the PlayerMovment component and store it in the 'jumps' variable
+                jumps = gameObject.GetComponent<PlayerMovment>().getJumpsAllowed();
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e.ToString() + "Error in setting Jumps");
+                // If an exception occurs (e.g., PlayerMovment component not found), set the 'jumps' variable to 1
+                jumps = 1;
+            }
+        }else
         {
-            Debug.Log(e.ToString() + "Error in setting Jumps");
-            // If an exception occurs (e.g., PlayerMovment component not found), set the 'jumps' variable to 1
-            jumps = 1;
+            jumps = 0; //Enemys don't have jumps in this implementiaion;
         }
+       
 
         // Add attribute variables to the dictionary
         variables.Add("health", health);
@@ -139,18 +147,16 @@ public class AttributeManager : MonoBehaviour
     }
 
     // Coroutine for health regeneration
-    private IEnumerator Healthregen()
+    private IEnumerator HealthRegen()
     {
-        float delay = 1f;
-        WaitForSeconds wait = new WaitForSeconds(delay);
-
+        healthregenActive = true;
         while (true)
         {
-            // Wait for the specified delay and then call the heal method
-            yield return wait;
+            yield return new WaitForSecondsRealtime(healRegenDelay);
             heal(lifeRegenRate);
         }
     }
+
 
     // Method to heal the character
     private void heal(float amount)
@@ -172,13 +178,14 @@ public class AttributeManager : MonoBehaviour
     // Method to start health regeneration coroutine
     private void startHealthregen()
     {
-        StartCoroutine(Healthregen());
+        StartCoroutine(HealthRegen());
     }
 
     // Method to stop health regeneration coroutine
     private void stopHealthregen()
     {
-        StopCoroutine(Healthregen());
+        StopCoroutine(HealthRegen());
+        healthregenActive=false;
     }
 
     // Method to deal damage to a target object
