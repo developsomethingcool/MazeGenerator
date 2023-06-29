@@ -52,7 +52,7 @@ public class PlayerMovment : MonoBehaviour
     public float maxWallrunningTime;
     public float wallrunnningHight;
     private bool stopcalled = false;
-    private float yPositionWallRunning = 4;
+    [SerializeField] private float yPositionWallRunning = 4;
 
     [Header("Other Variabels")]
     public Rigidbody pB = null;  // Reference to the Rigidbody component of the player

@@ -36,6 +36,11 @@ public class Enemy_AI : MonoBehaviour
         attackCooldown = attributeManager.attackcooldown; // Get the attack cooldown from the AttributeManager component
     }
 
+    private void Start()
+    {
+        gameObject.GetComponent<Animator>().enabled = false;
+    }
+
     private IEnumerator AttackRangeChecker()
     {
         float delay = 0.2f;
@@ -55,6 +60,7 @@ public class Enemy_AI : MonoBehaviour
         {
             if (!playingDeathAnimation)
             {
+                gameObject.GetComponent<Animator>().enabled = true;
                 animator.SetTrigger("Death");
                 Debug.Log("Playing death animation!!");
                 playingDeathAnimation = true;

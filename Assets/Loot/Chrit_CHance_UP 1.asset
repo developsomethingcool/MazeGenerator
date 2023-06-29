@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66747306ce9747043847e1391986b697, type: 3}
   m_Name: Chrit_CHance_UP 1
   m_EditorClassIdentifier: 
-  lootModel: {fileID: 0}
-  lootName: 
-  attributAffected: 
-  attributeChange: 0
-  dropChance: 0
+  lootModel: {fileID: 919132149155446097, guid: 210d15c7956e00a45a2d3b948286b511, type: 3}
+  lootName: CritChance_UP
+  attributAffected: criticalChance
+  attributeChange: 0.1
+  dropChance: 50

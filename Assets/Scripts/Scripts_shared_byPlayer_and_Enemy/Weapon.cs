@@ -66,18 +66,31 @@ public class Weapon : MonoBehaviour
     {
         if (isCheckingCollision)
         {
-            Debug.Log(other.gameObject.tag);
+            if (other.gameObject.tag != "Untagged")
+            {
+                if(other.gameObject.tag == "Enemy")
+                {
+                    Debug.Log(other.gameObject.name);
+                }
+
+            }
+            
 
             if (targetTag.Equals(other.gameObject.tag))
             {
-                if (!player)
+                if (!player) //When carryer isn't the player
                 {
-                    dealDamageToPlayer(); // Deal damage to the player character if collided with an enemy
+                    dealDamageToPlayer(); // Deal damage to the player character
                 }
                 else
                 {
-                    carryer.DealDamage(other.gameObject); // Deal damage to the target enemy
-                    isCheckingCollision = false; // Stop collision checking
+                    
+                    if (other.gameObject.name.Contains("Enemy")) //The player can only deal damage to the enemys themselfs
+                    {
+                        carryer.DealDamage(other.gameObject); // Deal damage to the target enemy
+                        isCheckingCollision = false; // Stop collision checking
+                    }
+                    
                 }
             }
             else

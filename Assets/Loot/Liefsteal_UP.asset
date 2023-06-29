@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66747306ce9747043847e1391986b697, type: 3}
   m_Name: Liefsteal_UP
   m_EditorClassIdentifier: 
-  lootModel: {fileID: 0}
-  lootName: 
-  attributAffected: 
-  attributeChange: 0
-  dropChance: 0
+  lootModel: {fileID: 919132149155446097, guid: c8e3fa722dedb1e4d8e2b5fd652fa162, type: 3}
+  lootName: Lifesteal_UP
+  attributAffected: percentageLifesteal
+  attributeChange: 5
+  dropChance: 25

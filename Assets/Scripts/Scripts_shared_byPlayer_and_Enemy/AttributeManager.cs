@@ -36,7 +36,7 @@ public class AttributeManager : MonoBehaviour
     public void Start()
     {
         // Set initial health value for the Healthbar_Script component
-        healthbarScript.SetHealth(health);
+        healthbarScript.SetMaxHealth(health);
 
         // Store the maximum health value
         maxHealth = health;
@@ -106,6 +106,8 @@ public class AttributeManager : MonoBehaviour
         {
             stopHealthregen();
         }
+
+        healthbarScript.SetHealth(health);
     }
 
     // Function to apply damage to the character
@@ -114,7 +116,7 @@ public class AttributeManager : MonoBehaviour
         // Reduce damage based on armor percentage
         Debug.Log("Get Damaged" + (damage - (damage * armor / 100)));
         health -= damage - (damage * armor / 100);
-        healthbarScript.SetHealth(health);
+
 
         if (health <= 0)
         {
@@ -209,7 +211,7 @@ public class AttributeManager : MonoBehaviour
             if (eneableLifesteal)
             {
                 // Apply lifesteal to the character
-                heal((totalDamage * (100 / percentageLifesteal)));
+                heal((totalDamage * (percentageLifesteal/100)));
             }
 
             // Deal damage to the target object
