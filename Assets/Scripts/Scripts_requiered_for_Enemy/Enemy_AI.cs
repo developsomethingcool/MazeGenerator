@@ -34,7 +34,6 @@ public class Enemy_AI : MonoBehaviour
         sightCheck.SetVariable(sightRange, whatisPlayer); // Set the sight range and target mask for the FieldOfView component
         StartCoroutine(AttackRangeChecker()); // Start the coroutine to check the attack range
         attackCooldown = attributeManager.attackcooldown; // Get the attack cooldown from the AttributeManager component
-        Debug.Log(attackCooldown);
     }
 
     private IEnumerator AttackRangeChecker()
