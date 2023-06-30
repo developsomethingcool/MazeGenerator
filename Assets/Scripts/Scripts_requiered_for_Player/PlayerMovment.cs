@@ -80,6 +80,12 @@ public class PlayerMovment : MonoBehaviour
 
     Vector3 moveDirection;  // Direction of player movement
 
+    //positions of goal are
+    private float GoalAreaPositionX;
+    private float GoalAreaPositionY;
+    private float GoalAreaPositionZ;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -94,7 +100,11 @@ public class PlayerMovment : MonoBehaviour
         wallCkeckDistance = transform.localScale.z * 1.25f;
         yPositionWallRunning = transform.position.y + wallrunnningHight;
         at = gameObject.GetComponent<AttributeManager>();
-    }
+
+        GoalAreaPositionX = FindObjectOfType<GoalAreaRender>().getGoalAreaPosition().x;
+        GoalAreaPositionY = FindObjectOfType<GoalAreaRender>().getGoalAreaPosition().y;
+        GoalAreaPositionZ = FindObjectOfType<GoalAreaRender>().getGoalAreaPosition().z;
+}
 
     /******************************************************
      * Methods which are used by Unity while running
@@ -136,6 +146,18 @@ public class PlayerMovment : MonoBehaviour
             Invoke("DelayedEndGame", 0.1f);
             //FindObjectOfType<GameManage>().EndGame();
         }
+
+
+        if( Mathf.Abs(GoalAreaPositionX- pB.position.x) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 3f)
+        {
+            Debug.Log("Final Space is reached!");
+            Invoke("DelayedVictory", 0.3f);
+        }
+
+        /*if (Mathf.Abs(FindObjectOfType<GoalAreaRender>().getGoalAreaPosition().x - pB.position.x) < 1f && Mathf.Abs(FindObjectOfType<GoalAreaRender>().getGoalAreaPosition().z - pB.position.z) < 1f);
+        {
+            
+        } */
 
 
         //Saving the current velocity so it can be viewed in the editor while running
@@ -392,6 +414,11 @@ public class PlayerMovment : MonoBehaviour
     private void DelayedEndGame()
     {
         FindObjectOfType<GameManage>().EndGame();
+    }
+
+    private void DelayedVictory()
+    {
+        FindObjectOfType<GameManage>().Victory();
     }
 
 }
