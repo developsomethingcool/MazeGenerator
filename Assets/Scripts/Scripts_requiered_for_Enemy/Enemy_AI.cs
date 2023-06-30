@@ -66,7 +66,13 @@ public class Enemy_AI : MonoBehaviour
                 Debug.Log("Playing death animation!!");
                 playingDeathAnimation = true;
             }
-            numberKilledEnemies = numberKilledEnemies + 1;
+            numberKilledEnemies++;
+            if(numberKilledEnemies == 1)
+            {
+                FindObjectOfType<GoalAreaRender>().updateGoalArea();
+
+            }
+
         }
         else
         {

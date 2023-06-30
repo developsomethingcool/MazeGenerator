@@ -24,4 +24,25 @@ public class GoalAreaRender: MonoBehaviour
         return newPosition;
     }
 
+    public void updateGoalArea()
+    {
+        Material goalAreaMaterial = new Material(Shader.Find("Standard"));
+
+        // Set the color of the material
+        goalAreaMaterial.color = new Color32(205, 92, 92, 255); // RGB(205, 9
+       
+        Debug.Log("Updated color of GoalArea");
+        // Access the renderer component of the prefab
+        Renderer prefabRenderer = newCell.GetComponent<Renderer>();
+
+        // Update the color of the goal area
+        prefabRenderer.material = goalAreaMaterial;
+
+        GameObject.Find("FinishingArea").GetComponent<Renderer>().material = goalAreaMaterial;
+            
+
+
+    }
+
+
 }
