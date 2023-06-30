@@ -9,7 +9,7 @@ public class EnemyRender : MonoBehaviour
     [SerializeField] MazeGenerator mazeGenerator;
 
     public float EnemySize = 1f;
-    [SerializeField] int enemyAmount = 3;
+    [SerializeField] int enemyAmount = 10;
 
     void Start()
     {

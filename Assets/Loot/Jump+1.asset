@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66747306ce9747043847e1391986b697, type: 3}
   m_Name: Jump+1
   m_EditorClassIdentifier: 
-  lootModel: {fileID: 0}
-  lootName: 
-  attributAffected: 
-  attributeChange: 0
-  dropChance: 0
+  lootModel: {fileID: 100000, guid: 734a8105ded85f8458775636c2b4c144, type: 3}
+  lootName: Jump+1
+  attributAffected: jumps
+  attributeChange: 1
+  dropChance: 10

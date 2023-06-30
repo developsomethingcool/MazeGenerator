@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66747306ce9747043847e1391986b697, type: 3}
   m_Name: Health_UP
   m_EditorClassIdentifier: 
-  lootModel: {fileID: 0}
-  lootName: 
-  attributAffected: 
-  attributeChange: 0
-  dropChance: 0
+  lootModel: {fileID: 919132149155446097, guid: ab74087398072dc4fbf9ebc7bde5316d, type: 3}
+  lootName: Health_UP
+  attributAffected: health
+  attributeChange: 10
+  dropChance: 100

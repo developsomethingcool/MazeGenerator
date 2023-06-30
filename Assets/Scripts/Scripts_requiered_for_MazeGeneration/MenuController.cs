@@ -25,12 +25,16 @@ public class MenuController : MonoBehaviour
     {
         Debug.Log("Inside of player menu!!!!!!!!!!!!!!!!!!!");
         SceneManager.LoadScene("Gameplay");
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void RestartGame()
     {
         Debug.Log("Inside of player menu!!!!!!!!!!!!!!!!!!!");
         SceneManager.LoadScene("Gameplay");
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void ShowMainMenu()

@@ -27,6 +27,7 @@ public class Enemy_AI : MonoBehaviour
     public float sightRange, attackRange; // The range for sight and attack detection
     public bool playerInSight, playerInAttackRange; // Flags to track if the player is in sight and attack range
 
+    public int numberKilledEnemies = 0; //number of killed enemies
     private void Awake()
     {
         player = GameObject.Find("Player").transform; // Find and assign the player's transform
@@ -34,7 +35,11 @@ public class Enemy_AI : MonoBehaviour
         sightCheck.SetVariable(sightRange, whatisPlayer); // Set the sight range and target mask for the FieldOfView component
         StartCoroutine(AttackRangeChecker()); // Start the coroutine to check the attack range
         attackCooldown = attributeManager.attackcooldown; // Get the attack cooldown from the AttributeManager component
-        Debug.Log(attackCooldown);
+    }
+
+    private void Start()
+    {
+        gameObject.GetComponent<Animator>().enabled = false;
     }
 
     private IEnumerator AttackRangeChecker()
@@ -56,10 +61,18 @@ public class Enemy_AI : MonoBehaviour
         {
             if (!playingDeathAnimation)
             {
+                gameObject.GetComponent<Animator>().enabled = true;
                 animator.SetTrigger("Death");
                 Debug.Log("Playing death animation!!");
                 playingDeathAnimation = true;
             }
+            numberKilledEnemies++;
+            if(numberKilledEnemies == 1)
+            {
+                FindObjectOfType<GoalAreaRender>().updateGoalArea();
+
+            }
+
         }
         else
         {

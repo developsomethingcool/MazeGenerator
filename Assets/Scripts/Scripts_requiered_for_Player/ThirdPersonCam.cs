@@ -35,8 +35,8 @@ public class ThirdPersonCam: MonoBehaviour
     private void Start()
     {
         // Lock and hide the cursor
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
 
         // Disable unnecessary cameras and set the initial camera style to combat
         fpsCam.SetActive(false);
@@ -87,6 +87,24 @@ public class ThirdPersonCam: MonoBehaviour
 
     private void SwitchToNextCameraStyle()
     {
+        if (currentStyle == Camerastyle.Combat)
+        {
+            // Switch to first-person camera style
+            combatCam.SetActive(false);
+            fpsCam.SetActive(true);
+            currentStyle = Camerastyle.firstPerson;
+        }
+        else if (currentStyle == Camerastyle.firstPerson)
+        {
+            // Switch to combat camera style
+            fpsCam.SetActive(false);
+            combatCam.SetActive(true);
+            currentStyle = Camerastyle.Combat;
+        }
+
+
+        //Disabeling Basic cam as this camera Style seems not to be working as intended
+        /*
         if (currentStyle == Camerastyle.Basic)
         {
             // Switch to combat camera style
@@ -108,6 +126,8 @@ public class ThirdPersonCam: MonoBehaviour
             basicCam.SetActive(true);
             currentStyle = Camerastyle.Basic;
         }
+
+        */
     }
 
     public String getCurrentSytle()
