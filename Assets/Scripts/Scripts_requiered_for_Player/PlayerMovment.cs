@@ -139,6 +139,13 @@ public class PlayerMovment : MonoBehaviour
 
         //Saving the current velocity so it can be viewed in the editor while running
         speed = pB.velocity.magnitude;
+
+        if (Input.GetKey(KeyCode.L))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+            
     }
 
     /******************************************************
