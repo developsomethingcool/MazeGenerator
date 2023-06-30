@@ -147,6 +147,7 @@ public class PlayerMovment : MonoBehaviour
             //FindObjectOfType<GameManage>().EndGame();
         }
 
+
         if( Mathf.Abs(GoalAreaPositionX- pB.position.x) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 3f)
         {
             Debug.Log("Final Space is reached!");
@@ -157,6 +158,7 @@ public class PlayerMovment : MonoBehaviour
         {
             
         } */
+
 
         //Saving the current velocity so it can be viewed in the editor while running
         speed = pB.velocity.magnitude;
