@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66747306ce9747043847e1391986b697, type: 3}
   m_Name: Armor_UP
   m_EditorClassIdentifier: 
-  lootModel: {fileID: 0}
-  lootName: 
-  attributAffected: 
-  attributeChange: 0
-  dropChance: 0
+  lootModel: {fileID: 919132149155446097, guid: 3b503c62c09065f4090267b38ac58b5e, type: 3}
+  lootName: Armor_UP
+  attributAffected: Armor
+  attributeChange: 1
+  dropChance: 25

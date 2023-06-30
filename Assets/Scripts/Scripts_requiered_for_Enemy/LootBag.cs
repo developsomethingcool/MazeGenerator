@@ -48,7 +48,7 @@ public class LootBag : MonoBehaviour
             lootGameObject.GetComponent<MeshRenderer>().sharedMaterials = dropedIteam.lootModel.GetComponent<MeshRenderer>().sharedMaterials;
 
             // Set the values of the collision detector component on the loot game object
-            lootGameObject.GetComponent<CollisionDetector>().setValues(dropedIteam.attributAffected, dropedIteam.attributeChange);
+           lootGameObject.GetComponent<CollisionDetector>().setValues(dropedIteam.attributAffected, dropedIteam.attributeChange);
         }
     }
 }
