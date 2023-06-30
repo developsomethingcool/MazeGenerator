@@ -226,7 +226,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -407,6 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978a39ba1e0da4a419f21ebc6c21d746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameOfTheMenu: 
 --- !u!1 &1067794867
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,7 +742,7 @@ MonoBehaviour:
   EnenemyCellPrefab_Basic: {fileID: 5559540082895771216, guid: a49592c1a1395c742b8027536622fcd7, type: 3}
   EnenemyCellPrefab_Axe: {fileID: 4840710252319571331, guid: 58eeb0a0ba708a34f99a0b243ed53419, type: 3}
   mazeGenerator: {fileID: 1776913866}
-  EnemySize: 1
+  EnemySize: 5
   enemyAmount: 10
 --- !u!4 &1318360958
 Transform:
