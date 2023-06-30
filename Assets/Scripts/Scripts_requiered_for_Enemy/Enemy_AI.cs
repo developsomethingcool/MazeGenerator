@@ -27,6 +27,7 @@ public class Enemy_AI : MonoBehaviour
     public float sightRange, attackRange; // The range for sight and attack detection
     public bool playerInSight, playerInAttackRange; // Flags to track if the player is in sight and attack range
 
+    public int numberKilledEnemies = 0; //number of killed enemies
     private void Awake()
     {
         player = GameObject.Find("Player").transform; // Find and assign the player's transform
@@ -65,6 +66,7 @@ public class Enemy_AI : MonoBehaviour
                 Debug.Log("Playing death animation!!");
                 playingDeathAnimation = true;
             }
+            numberKilledEnemies = numberKilledEnemies + 1;
         }
         else
         {

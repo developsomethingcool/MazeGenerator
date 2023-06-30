@@ -377,7 +377,7 @@ public class PlayerMovment : MonoBehaviour
 
         // Apply the force in the direction of the wall's normal vector
         pB.AddForce(wallNormal * pushForceMagnitude, ForceMode.Force);
-        Debug.Log("ForceAllyed");
+        //Debug.Log("ForceAllyed");
 
     }
     //end the game

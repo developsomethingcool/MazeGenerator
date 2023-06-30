@@ -35,8 +35,8 @@ public class ThirdPersonCam: MonoBehaviour
     private void Start()
     {
         // Lock and hide the cursor
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
 
         // Disable unnecessary cameras and set the initial camera style to combat
         fpsCam.SetActive(false);

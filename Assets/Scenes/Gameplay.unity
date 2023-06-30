@@ -38,7 +38,9 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
+  
   m_IndirectSpecularColor: {r: 0.36051667, g: 0.21131156, b: 0.50790393, a: 1}
+
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -741,7 +743,7 @@ MonoBehaviour:
   EnenemyCellPrefab_Axe: {fileID: 4840710252319571331, guid: 58eeb0a0ba708a34f99a0b243ed53419, type: 3}
   mazeGenerator: {fileID: 1776913866}
   EnemySize: 1
-  enemyAmount: 5
+  enemyAmount: 10
 --- !u!4 &1318360958
 Transform:
   m_ObjectHideFlags: 0
@@ -755,7 +757,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362957219
 GameObject:
@@ -1168,6 +1170,7 @@ MonoBehaviour:
   mazeGenerator: {fileID: 1776913866}
   mazeWidth: 0
   mazeLength: 0
+  numberOfTraps: 80
 --- !u!4 &2105933268
 Transform:
   m_ObjectHideFlags: 0
