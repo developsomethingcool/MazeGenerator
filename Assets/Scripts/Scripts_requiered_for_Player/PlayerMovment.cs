@@ -137,6 +137,7 @@ public class PlayerMovment : MonoBehaviour
             //FindObjectOfType<GameManage>().EndGame();
         }
 
+
         //Saving the current velocity so it can be viewed in the editor while running
         speed = pB.velocity.magnitude;
 
