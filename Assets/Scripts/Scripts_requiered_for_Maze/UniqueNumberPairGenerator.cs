@@ -5,6 +5,11 @@ public class UniqueNumberPairGenerator : MonoBehaviour
 {
     private static List<(int, int)> generatedPairs = new List<(int, int)>();
 
+    private void Awake()
+    {
+        generatedPairs.Add((1, 1));
+    }
+
     public static (int, int) GenerateUniqueNumberPair(int minRangeNumber1, int maxRangeNumber1, int minRangeNumber2, int maxRangeNumber2)
     {
         (int number1, int number2) pair;
@@ -15,7 +20,6 @@ public class UniqueNumberPairGenerator : MonoBehaviour
         } while (IsPairGenerated(pair));
 
         generatedPairs.Add(pair);
-        Debug.Log("Pair: (" + pair.number1 + ", " + pair.number2 + ")");
 
         return pair;
     }
@@ -23,7 +27,7 @@ public class UniqueNumberPairGenerator : MonoBehaviour
     static (int, int) GenerateRandomPair(int minRangeNumber1, int maxRangeNumber1, int minRangeNumber2, int maxRangeNumber2)
     {
         int number1 = Random.Range(minRangeNumber1, maxRangeNumber1);
-        int number2 = Random.Range(minRangeNumber2, maxRangeNumber2);
+        int number2 = Random.Range(minRangeNumber2, maxRangeNumber2 );
         return (number1, number2);
     }
 

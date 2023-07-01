@@ -15,6 +15,8 @@ public class TrapGenerator : MonoBehaviour
     private TrapCell[] cells;
     //store types of the traps
     private int[] typesTraps;
+    private Data_Percistence dp;
+    private float drapMultiplyer;
 
 
 
@@ -28,10 +30,46 @@ public class TrapGenerator : MonoBehaviour
 
     }
 
-    /* void Awake()
+    private void Awake()
      {
-         Debug.Log("Wake up method functions!");
-     }*/
+        try
+        {
+            dp = new Data_Percistence();
+            setDrapMultiplyer();
+            double mazesize = Math.Pow(mazeGenerator.GetSizeMultiplyer() * dp.getMazeSize(), 2f);
+            numberOfTraps = (int)Math.Round(mazesize * drapMultiplyer);
+              
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log("No Data_Percistence gefunden, wahrscheinlich mit gameplay Scene angefangen, wenn ja dann ist das normal");
+        }
+    }
+
+    private void setDrapMultiplyer()
+    {
+        switch (dp.getDifficulty())
+        {
+            case 0:
+                drapMultiplyer = 0.07f;
+                break;
+            case 1:
+                drapMultiplyer = 0.08f;
+                break;
+            case 2:
+                drapMultiplyer = 0.09f;
+                break;
+            case 3:
+                drapMultiplyer = 0.1f;
+                break;
+            case 4:
+                drapMultiplyer = 0.2f;
+                break;
+            default:
+                drapMultiplyer = 0.09f;
+                break;
+        }
+    }
 
     public TrapCell[] GetTrap()
     {
