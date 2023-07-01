@@ -50,6 +50,8 @@ public class GoalAreaRender: MonoBehaviour
 
     public void updateGoalArea()
     {
+        FindObjectOfType<TextModifier>().UpdateText("All Enemys Killed\nReach the goal!");
+
         goalUnlocked = true;
 
         Material goalAreaMaterial = new Material(Shader.Find("Standard"));
@@ -73,11 +75,13 @@ public class GoalAreaRender: MonoBehaviour
     public void EnemyKilled()
     {
         killCount++;
+        FindObjectOfType<TextModifier>().UpdateText(killCount, enemysTotal);
     }
 
     public void UpdateGoalCondition(int eT)
     {
         enemysTotal = eT;
+        FindObjectOfType<TextModifier>().UpdateText(0, eT);
     }
 
 }
