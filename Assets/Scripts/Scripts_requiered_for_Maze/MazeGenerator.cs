@@ -19,8 +19,10 @@ public class MazeGenerator : MonoBehaviour
         try
         {
             dp = new Data_Percistence();
-            mazeWidth = dp.getMazeSize() * sizeMultiplyer+1;
-            mazeHeight = dp.getMazeSize() * sizeMultiplyer+1;
+            mazeWidth = dp.getMazeSize() * sizeMultiplyer;
+            mazeHeight = dp.getMazeSize() * sizeMultiplyer;
+
+
         }catch(System.Exception e)
         {
             Debug.Log("No Data_Percistence gefunden, wahrscheinlich mit gameplay Scene angefangen, wenn ja dann ist das normal");

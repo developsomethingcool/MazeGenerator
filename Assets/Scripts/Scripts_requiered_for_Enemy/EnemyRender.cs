@@ -46,22 +46,22 @@ public class EnemyRender : MonoBehaviour
 
         switch (dp.getDifficulty())
         {
-            case 0:
+            case 1:
                 enemyAmount = 1;
                 break;
-            case 1:
+            case 2:
                 enemyMultiplyer = 0.01f;
                 enemyAmount = (int) (mazesize * enemyMultiplyer);
                 break;
-            case 2:
+            case 3:
                 enemyMultiplyer = 0.02f;
                 enemyAmount = (int)(mazesize * enemyMultiplyer);
                 break;
-            case 3:
+            case 4:
                 enemyMultiplyer = 0.03f;
                 enemyAmount = (int)(mazesize * enemyMultiplyer);
                 break;
-            case 4:
+            case 5:
                 enemyMultiplyer = 0.08f;
                 enemyAmount = (int)(mazesize * enemyMultiplyer);
                 break;
