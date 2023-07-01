@@ -17,8 +17,8 @@ public class GameManage : MonoBehaviour
 
     void Restart()
     {
-        LoadingSettings.showRespawnMenu = "gameoverMenu";
-        nameOfTheMenu = "gameoverMenu";
+        LoadingSettings.showRespawnMenu = "GameoverMenu";
+        nameOfTheMenu = "GameoverMenu";
         SceneManager.LoadScene("Menu");
         MenuController menuController = FindObjectOfType<MenuController>();
         if (menuController != null)
@@ -29,8 +29,8 @@ public class GameManage : MonoBehaviour
 
     public void Victory()
     {
-        nameOfTheMenu = "victoryMenu";
-        LoadingSettings.showRespawnMenu = "victoryMenu";
+        nameOfTheMenu = "VictoryMenu";
+        LoadingSettings.showRespawnMenu = "VictoryMenu";
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneManager.LoadScene("Menu");
