@@ -23,9 +23,9 @@ public class MazeRender : MonoBehaviour
         // Get our MazeGenerator script to make us a maze.
         MazeCell[,] maze = mazeGenerator.GetMaze();
         // Loop through every cell in the maze.
-        for (int x = 0; x < mazeGenerator.GetMazeHeight(); x++)
+        for (int x = 0; x < mazeGenerator.mazeWidth; x++)
         {
-            for (int y = 0; y < mazeGenerator.GetMazeHeight(); y++)
+            for (int y = 0; y < mazeGenerator.mazeHeight; y++)
             {
                 
                 // Instantiate a new maze cell prefab as a child of the MazeRenderer object.
@@ -40,7 +40,7 @@ public class MazeRender : MonoBehaviour
                 bool right = false;
                 bool bottom = false;
                 bool floor = true;
-                if (x == mazeGenerator.GetMazeHeight() - 1) right = true;
+                if (x == mazeGenerator.mazeWidth - 1) right = true;
                 if (y == 0) bottom = true;
 
                 
