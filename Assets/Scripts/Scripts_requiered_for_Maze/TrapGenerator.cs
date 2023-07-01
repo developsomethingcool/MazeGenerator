@@ -50,19 +50,19 @@ public class TrapGenerator : MonoBehaviour
     {
         switch (dp.getDifficulty())
         {
-            case 0:
+            case 1:
                 drapMultiplyer = 0.07f;
                 break;
-            case 1:
+            case 2:
                 drapMultiplyer = 0.08f;
                 break;
-            case 2:
+            case 3:
                 drapMultiplyer = 0.09f;
                 break;
-            case 3:
+            case 4:
                 drapMultiplyer = 0.1f;
                 break;
-            case 4:
+            case 5:
                 drapMultiplyer = 0.2f;
                 break;
             default:
