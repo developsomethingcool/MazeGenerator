@@ -148,7 +148,7 @@ public class PlayerMovment : MonoBehaviour
         }
 
 
-        if( Mathf.Abs(GoalAreaPositionX- pB.position.x) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 3f)
+        if( Mathf.Abs(GoalAreaPositionX- pB.position.x) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 3f && FindObjectOfType<GoalAreaRender>().goalReached())
         {
             Debug.Log("Final Space is reached!");
             Invoke("DelayedVictory", 0.3f);

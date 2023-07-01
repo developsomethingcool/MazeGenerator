@@ -84,4 +84,9 @@ public class GoalAreaRender: MonoBehaviour
         FindObjectOfType<TextModifier>().UpdateText(0, eT);
     }
 
+    public bool goalReached()
+    {
+        return goalUnlocked;
+    }
+
 }
