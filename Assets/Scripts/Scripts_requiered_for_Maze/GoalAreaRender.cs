@@ -26,7 +26,7 @@ public class GoalAreaRender: MonoBehaviour
     private TextMeshProUGUI textMeshPro;
     int counter = 0;
 
-    void Start()
+    void Start()  
     {
         x = (float)Random.Range(mazeGenerator.GetMazeHeight() - 10, mazeGenerator.GetMazeHeight());
         y = 0f;
