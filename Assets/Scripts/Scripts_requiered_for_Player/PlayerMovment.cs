@@ -148,16 +148,16 @@ public class PlayerMovment : MonoBehaviour
         }
 
 
-        if( Mathf.Abs(GoalAreaPositionX- pB.position.x) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 3f)
+        if (LoadingSettings.GoalAreaOpened)
         {
-            Debug.Log("Final Space is reached!");
-            Invoke("DelayedVictory", 0.3f);
+            if (Mathf.Abs(GoalAreaPositionX - pB.position.x) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 3f)
+            {   
+                Invoke("DelayedVictory", 0.3f);
+            }
         }
+        
 
-        /*if (Mathf.Abs(FindObjectOfType<GoalAreaRender>().getGoalAreaPosition().x - pB.position.x) < 1f && Mathf.Abs(FindObjectOfType<GoalAreaRender>().getGoalAreaPosition().z - pB.position.z) < 1f);
-        {
-            
-        } */
+       
 
 
         //Saving the current velocity so it can be viewed in the editor while running
