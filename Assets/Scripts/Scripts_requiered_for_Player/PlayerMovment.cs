@@ -421,4 +421,8 @@ public class PlayerMovment : MonoBehaviour
         FindObjectOfType<GameManage>().Victory();
     }
 
+    public Vector3 playersPosition()
+    {
+        return pB.position;
+    }
 }

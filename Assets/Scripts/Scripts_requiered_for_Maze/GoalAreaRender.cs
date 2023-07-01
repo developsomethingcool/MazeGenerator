@@ -1,9 +1,12 @@
+
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GoalAreaRender: MonoBehaviour
 {
+    //prefab of goal area
     [SerializeField] GameObject GoalArea_prefab;
     [SerializeField] MazeGenerator mazeGenerator;
     [SerializeField] int killCount = 0;
@@ -11,6 +14,7 @@ public class GoalAreaRender: MonoBehaviour
 
     public float GoalAreaSize = 1f;
     private GameObject newCell;
+    private GameObject dPointer;
     private bool goalUnlocked = false;
 
     //positions of GoalArea
@@ -18,6 +22,9 @@ public class GoalAreaRender: MonoBehaviour
     private float y;
     private float z;
 
+    //
+    private TextMeshProUGUI textMeshPro;
+    int counter = 0;
 
     void Start()
     {
@@ -25,6 +32,8 @@ public class GoalAreaRender: MonoBehaviour
         y = 0f;
         z = (float)Random.Range(mazeGenerator.GetMazeHeight() - 10, mazeGenerator.GetMazeHeight());
         newCell = Instantiate(GoalArea_prefab, new Vector3(x * GoalAreaSize, y, y * GoalAreaSize), Quaternion.identity);
+        textMeshPro = newCell.GetComponentInChildren<TextMeshProUGUI>();
+        textMeshPro.enabled = false;
 
     }
 
@@ -35,8 +44,12 @@ public class GoalAreaRender: MonoBehaviour
             if (killCount >= enemysTotal)
             {
                 updateGoalArea();
+                textMeshPro.enabled = true;
+
             }
         }
+        textMeshPro.text = distanceBetweenPlayerAndPoint().ToString();
+        
         
     }
 
@@ -87,6 +100,13 @@ public class GoalAreaRender: MonoBehaviour
     public bool goalReached()
     {
         return goalUnlocked;
+    }
+
+    public float distanceBetweenPlayerAndPoint()
+    {
+        float distanceSquared = Mathf.Pow((FindObjectOfType<PlayerMovment>().playersPosition().x - x),2) + Mathf.Pow((FindObjectOfType<PlayerMovment>().playersPosition().z -z),2);
+        float distance = Mathf.Sqrt(distanceSquared);
+        return distance;
     }
 
 }

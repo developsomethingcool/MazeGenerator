@@ -954,6 +954,7 @@ MonoBehaviour:
   mazeGenerator: {fileID: 1776913866}
   killCount: 0
   enemysTotal: 0
+  DestinationPointer_prefab: {fileID: 6653315076606350915, guid: 2f374178257bdb640a4d3e8328474985, type: 3}
   GoalAreaSize: 5
 --- !u!4 &1067794869
 Transform:
@@ -3003,7 +3004,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7773739963984604424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.2700386, y: 5.4632792, z: -1.5667372}
+  m_LocalPosition: {x: -7.2700386, y: 10.05328, z: -1.5667372}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3200,8 +3201,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3581711856322598153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.41, z: 0.29}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 5, z: 0.29}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2201571258833101427}
@@ -3826,7 +3827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642187985139160710}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.2700386, y: 5.4632792, z: -1.5667372}
+  m_LocalPosition: {x: -7.2700386, y: 10.05328, z: -1.5667372}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
