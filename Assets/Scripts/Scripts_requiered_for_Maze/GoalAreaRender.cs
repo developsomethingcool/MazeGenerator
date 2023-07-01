@@ -104,9 +104,10 @@ public class GoalAreaRender: MonoBehaviour
 
     public float distanceBetweenPlayerAndPoint()
     {
-        float distanceSquared = Mathf.Pow((FindObjectOfType<PlayerMovment>().playersPosition().x - x),2) + Mathf.Pow((FindObjectOfType<PlayerMovment>().playersPosition().z -z),2);
-        float distance = Mathf.Sqrt(distanceSquared);
-        return distance;
+        //float distanceSquared = Mathf.Pow((FindObjectOfType<PlayerMovment>().playersPosition().x - x),2) + Mathf.Pow((FindObjectOfType<PlayerMovment>().playersPosition().z -z),2);
+        //float distance = Mathf.Sqrt(distanceSquared);
+        return Vector3.Distance(FindObjectOfType<PlayerMovment>().playersPosition(), new Vector3(x,y,z));
+        
     }
 
 }
