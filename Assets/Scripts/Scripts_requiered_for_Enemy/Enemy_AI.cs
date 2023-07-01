@@ -26,6 +26,7 @@ public class Enemy_AI : MonoBehaviour
     // States
     public float sightRange, attackRange; // The range for sight and attack detection
     public bool playerInSight, playerInAttackRange; // Flags to track if the player is in sight and attack range
+    private bool addedToDeathcount = false;
 
     public int numberKilledEnemies = 0; //number of killed enemies
     private void Awake()
@@ -59,18 +60,19 @@ public class Enemy_AI : MonoBehaviour
         //retirvig Player death status from the attribute manager
         if (attributeManager.dead)
         {
+            if (!addedToDeathcount)
+            {
+                addedToDeathcount=true;
+                FindObjectOfType<GoalAreaRender>().EnemyKilled();
+
+            }
+
             if (!playingDeathAnimation)
             {
                 gameObject.GetComponent<Animator>().enabled = true;
                 animator.SetTrigger("Death");
                 Debug.Log("Playing death animation!!");
                 playingDeathAnimation = true;
-            }
-            numberKilledEnemies++;
-            if(numberKilledEnemies == 1)
-            {
-                FindObjectOfType<GoalAreaRender>().updateGoalArea();
-
             }
 
         }

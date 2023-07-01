@@ -70,6 +70,13 @@ public class EnemyRender : MonoBehaviour
                 enemyAmount = (int)(mazesize * enemyMultiplyer);
                 break;
         }
+
+        FindObjectOfType<GoalAreaRender>().UpdateGoalCondition(enemyAmount);
+    }
+
+    public int getEnemyAmount()
+    {
+        return enemyAmount;
     }
 
 
