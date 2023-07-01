@@ -5,11 +5,45 @@ using UnityEngine;
 public class MazeGenerator : MonoBehaviour
 {
 
-    [Range(5, 500)]
-    public int mazeWidth = 30, mazeHeight = 30;
+
+    [SerializeField] private int mazeWidth = 30;
+    [SerializeField] private int mazeHeight = 30;
+    [SerializeField] private int sizeMultiplyer = 10;
     public int startX, startY;
     MazeCell[,] maze;
     Vector2Int currentCell;
+    private Data_Percistence dp;
+
+    private void Awake()
+    {
+        try
+        {
+            dp = new Data_Percistence();
+            mazeWidth = dp.getMazeSize() * sizeMultiplyer;
+            mazeHeight = dp.getMazeSize() * sizeMultiplyer;
+
+
+        }catch(System.Exception e)
+        {
+            Debug.Log("No Data_Percistence gefunden, wahrscheinlich mit gameplay Scene angefangen, wenn ja dann ist das normal");
+        }
+    }
+
+    public int GetMazeWidth()
+    {
+        return mazeWidth;
+    }
+
+    public int GetMazeHeight()
+    {
+        return mazeHeight;
+    }
+
+    public int GetSizeMultiplyer()
+    {
+        return sizeMultiplyer;
+    }
+
     public MazeCell[,] GetMaze()
     {
         maze = new MazeCell[mazeWidth, mazeHeight];

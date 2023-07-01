@@ -60,6 +60,9 @@ public class PlayerMovment : MonoBehaviour
     float hInput;
     float vInput;
     private AttributeManager at;
+    private Data_Percistence dp;
+    public TimerSelf timer;
+
 
     public MovmementState state;  // Current movement state of the player
 
@@ -104,6 +107,8 @@ public class PlayerMovment : MonoBehaviour
         GoalAreaPositionX = FindObjectOfType<GoalAreaRender>().getGoalAreaPosition().x;
         GoalAreaPositionY = FindObjectOfType<GoalAreaRender>().getGoalAreaPosition().y;
         GoalAreaPositionZ = FindObjectOfType<GoalAreaRender>().getGoalAreaPosition().z;
+
+        dp = new Data_Percistence();
 }
 
     /******************************************************
@@ -148,16 +153,17 @@ public class PlayerMovment : MonoBehaviour
         }
 
 
-        if (LoadingSettings.GoalAreaOpened)
+        if( Mathf.Abs(GoalAreaPositionX- pB.position.x) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 3f && FindObjectOfType<GoalAreaRender>().goalReached())
         {
-            if (Mathf.Abs(GoalAreaPositionX - pB.position.x) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 3f)
-            {   
-                Invoke("DelayedVictory", 0.3f);
-            }
+            Debug.Log("Final Space is reached!");
+            dp.SetEndTime(timer.endTimer());
+            Invoke("DelayedVictory", 0.3f);
         }
-        
 
-       
+        /*if (Mathf.Abs(FindObjectOfType<GoalAreaRender>().getGoalAreaPosition().x - pB.position.x) < 1f && Mathf.Abs(FindObjectOfType<GoalAreaRender>().getGoalAreaPosition().z - pB.position.z) < 1f);
+        {
+            
+        } */
 
 
         //Saving the current velocity so it can be viewed in the editor while running
