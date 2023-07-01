@@ -10,13 +10,36 @@ public class GoalAreaRender: MonoBehaviour
     public float GoalAreaSize = 1f;
     private GameObject newCell;
 
+    //positions of GoalArea
+    private float x;
+    private float y;
+    private float z;
+
+    //number of already killed enemies
+    private int enemiesKilled = 0;
+
+    //number of enemies to win a game
+    public int numberOfKilledEnemiesToWin = 5;
+
     void Start()
     {
-         newCell = Instantiate(GoalArea_prefab, new Vector3((float)Random.Range(mazeGenerator.mazeHeight-10, mazeGenerator.mazeHeight) * GoalAreaSize, 0f, (float)Random.Range(mazeGenerator.mazeWidth - 10, mazeGenerator.mazeWidth) * GoalAreaSize), Quaternion.identity);
+        x = (float)Random.Range(mazeGenerator.mazeHeight - 10, mazeGenerator.mazeHeight);
+        y = 0f;
+        z = (float)Random.Range(mazeGenerator.mazeWidth - 10, mazeGenerator.mazeWidth);
+        newCell = Instantiate(GoalArea_prefab, new Vector3(x * GoalAreaSize, y, y * GoalAreaSize), Quaternion.identity);
         
     }
 
-   
+    private void Update()
+    {
+        if(enemiesKilled == numberOfKilledEnemiesToWin)
+        {
+            updateGoalArea();
+            LoadingSettings.GoalAreaOpened = true;
+
+        }
+
+    }
 
     public Vector3 getGoalAreaPosition()
     {
@@ -29,9 +52,8 @@ public class GoalAreaRender: MonoBehaviour
         Material goalAreaMaterial = new Material(Shader.Find("Standard"));
 
         // Set the color of the material
-        goalAreaMaterial.color = new Color32(205, 92, 92, 255); // RGB(205, 9
+        goalAreaMaterial.color = new Color32(0, 255, 0, 255); // make a finish green
        
-        Debug.Log("Updated color of GoalArea");
         // Access the renderer component of the prefab
         Renderer prefabRenderer = newCell.GetComponent<Renderer>();
 
@@ -39,9 +61,12 @@ public class GoalAreaRender: MonoBehaviour
         prefabRenderer.material = goalAreaMaterial;
 
         GameObject.Find("FinishingArea").GetComponent<Renderer>().material = goalAreaMaterial;
-            
+    }
 
-
+    public void enemyKilled()
+    {
+        Debug.Log("numberKilledEnemies:" + enemiesKilled);
+        enemiesKilled++;
     }
 
 

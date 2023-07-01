@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThirdPersonCam: MonoBehaviour
+public class ThirdPersonCam : MonoBehaviour
 
 {
     [Header("ToBeDisplayed")]
@@ -19,6 +19,11 @@ public class ThirdPersonCam: MonoBehaviour
     public GameObject basicCam;  // Reference to the basic camera object
     public GameObject combatCam;  // Reference to the combat camera object
     public GameObject fpsCam;  // Reference to the first-person camera object
+
+    [Header("FPC")]
+    public float sensitivity = 100f; // Mouse sensitivity
+    private float rotationX = 0f; // Current rotation around the X-axis
+
 
     [Header("Values")]
     public float rotationSpeed;  // The rotation speed for the camera
@@ -73,6 +78,7 @@ public class ThirdPersonCam: MonoBehaviour
         }
         else if (currentStyle == Camerastyle.Combat)
         {
+
             // Rotate the orientation and player object to face the combat look-at position
             Vector3 directionToCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
             orientation.forward = directionToCombatLookAt.normalized;
@@ -80,8 +86,21 @@ public class ThirdPersonCam: MonoBehaviour
         }
         else if (currentStyle == Camerastyle.firstPerson)
         {
-            // Rotate the orientation based on the camera's forward direction in first-person mode
-            orientation.forward = transform.forward * Time.deltaTime;
+            /*
+
+                float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+                float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+
+                rotationX -= mouseY;
+                rotationX = Mathf.Clamp(rotationX, -90f, 90f);
+
+                transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
+                player.Rotate(Vector3.up * mouseX);
+                transform.Rotate(Vector3.up * mouseX);
+            */
+            orientation.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
+
+
         }
     }
 

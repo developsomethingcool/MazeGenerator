@@ -4,5 +4,7 @@ using UnityEngine;
 
 public static class LoadingSettings
 {
-    public static bool showRespawnMenu = false;
+    public static string showRespawnMenu = "mainMenu";
+    public static bool GoalAreaOpened = false;
+    
 }
