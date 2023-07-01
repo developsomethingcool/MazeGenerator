@@ -23,9 +23,9 @@ public class GoalAreaRender: MonoBehaviour
 
     void Start()
     {
-        x = (float)Random.Range(mazeGenerator.mazeHeight - 10, mazeGenerator.mazeHeight);
+        x = (float)Random.Range(mazeGenerator.GetMazeHeight() - 10, mazeGenerator.GetMazeHeight());
         y = 0f;
-        z = (float)Random.Range(mazeGenerator.mazeWidth - 10, mazeGenerator.mazeWidth);
+        z = (float)Random.Range(mazeGenerator.GetMazeHeight() - 10, mazeGenerator.GetMazeHeight());
         newCell = Instantiate(GoalArea_prefab, new Vector3(x * GoalAreaSize, y, y * GoalAreaSize), Quaternion.identity);
         
     }
