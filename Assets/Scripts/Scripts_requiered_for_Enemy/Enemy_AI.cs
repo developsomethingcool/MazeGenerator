@@ -61,19 +61,17 @@ public class Enemy_AI : MonoBehaviour
         {
             if (!playingDeathAnimation)
             {
-                playingDeathAnimation = true;
-
-                //if enemy is killed, increase number of killed enemies
-                FindObjectOfType<GoalAreaRender>().enemyKilled();
-
                 gameObject.GetComponent<Animator>().enabled = true;
                 animator.SetTrigger("Death");
                 Debug.Log("Playing death animation!!");
-               
+                playingDeathAnimation = true;
             }
-            FindObjectOfType<GoalAreaRender>().enemyKilled();
-           
-               
+            numberKilledEnemies++;
+            if(numberKilledEnemies == 1)
+            {
+                FindObjectOfType<GoalAreaRender>().updateGoalArea();
+
+            }
 
         }
         else
@@ -166,6 +164,4 @@ public class Enemy_AI : MonoBehaviour
     {
         alreadyAttacked = false; // Reset the alreadyAttacked flag to allow for the next attack
     }
-
-
 }

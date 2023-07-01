@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    public GameObject MainMenu;
-    public GameObject Options;
-    public GameObject GameoverMenu;
-    public GameObject VictoryMenu;
+    public GameObject mainMenu;
+    public GameObject options;
+    public GameObject gameoverMenu;
+    public GameObject victoryMenu;
 
     private void Start()
     {
-        if(LoadingSettings.showRespawnMenu == "GameoverMenu")
+        if(LoadingSettings.showRespawnMenu == "gameoverMenu")
         {
             ShowGameoverMenu();
-        } else if (LoadingSettings.showRespawnMenu == "VictoryMenu")
+        } else if (LoadingSettings.showRespawnMenu == "victoryMenu")
         {
             ShowVictoryMenu();
         }
@@ -36,7 +36,7 @@ public class MenuController : MonoBehaviour
 
     public void RestartGame()
     {
-        Debug.Log("Inside of Restart menu!!!!!!!!!!!!!!!!!!!");
+        Debug.Log("Inside of player menu!!!!!!!!!!!!!!!!!!!");
         SceneManager.LoadScene("Gameplay");
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -45,21 +45,19 @@ public class MenuController : MonoBehaviour
     public void ShowMainMenu()
     {
         DisableAllMenus();
-        Debug.Log("Got inside of main menu!");
-        LoadingSettings.showRespawnMenu = "";
-        MainMenu.SetActive(true);
+        mainMenu.SetActive(true);
     }
 
     public void ShowOptions()
     {
         DisableAllMenus();
-        Options.SetActive(true);
+        options.SetActive(true);
     }
 
     public void ShowGameoverMenu()
     {
         DisableAllMenus();
-        GameoverMenu.SetActive(true);
+        gameoverMenu.SetActive(true);
     }
 
     public void QuitGame()
@@ -71,16 +69,15 @@ public class MenuController : MonoBehaviour
     public void ShowVictoryMenu()
     {
         DisableAllMenus();
-        VictoryMenu.SetActive(true);
-        
+        victoryMenu.SetActive(true);
     }
 
     private void DisableAllMenus()
     {
-        MainMenu.SetActive(false);
-        Options.SetActive(false);
-        GameoverMenu.SetActive(false);
-        VictoryMenu.SetActive(false);
+        mainMenu.SetActive(false);
+        options.SetActive(false);
+        gameoverMenu.SetActive(false);
+        victoryMenu.SetActive(false);
     }
 
 }

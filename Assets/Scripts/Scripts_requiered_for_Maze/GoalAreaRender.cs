@@ -15,11 +15,6 @@ public class GoalAreaRender: MonoBehaviour
     private float y;
     private float z;
 
-    //number of already killed enemies
-    private int enemiesKilled = 0;
-
-    //number of enemies to win a game
-    public int numberOfKilledEnemiesToWin = 5;
 
     void Start()
     {
@@ -30,16 +25,7 @@ public class GoalAreaRender: MonoBehaviour
         
     }
 
-    private void Update()
-    {
-        if(enemiesKilled == numberOfKilledEnemiesToWin)
-        {
-            updateGoalArea();
-            LoadingSettings.GoalAreaOpened = true;
-
-        }
-
-    }
+   
 
     public Vector3 getGoalAreaPosition()
     {
@@ -54,6 +40,7 @@ public class GoalAreaRender: MonoBehaviour
         // Set the color of the material
         goalAreaMaterial.color = new Color32(0, 255, 0, 255); // make a finish green
        
+        Debug.Log("Updated color of GoalArea");
         // Access the renderer component of the prefab
         Renderer prefabRenderer = newCell.GetComponent<Renderer>();
 
@@ -61,12 +48,9 @@ public class GoalAreaRender: MonoBehaviour
         prefabRenderer.material = goalAreaMaterial;
 
         GameObject.Find("FinishingArea").GetComponent<Renderer>().material = goalAreaMaterial;
-    }
+            
 
-    public void enemyKilled()
-    {
-        Debug.Log("numberKilledEnemies:" + enemiesKilled);
-        enemiesKilled++;
+
     }
 
 
