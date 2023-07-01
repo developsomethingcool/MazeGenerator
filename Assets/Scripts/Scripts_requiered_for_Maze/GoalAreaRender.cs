@@ -6,6 +6,7 @@ public class GoalAreaRender: MonoBehaviour
 {
     [SerializeField] GameObject GoalArea_prefab;
     [SerializeField] MazeGenerator mazeGenerator;
+    [SerializeField] TextModifier goalText;
     [SerializeField] int killCount = 0;
     [SerializeField] int enemysTotal = 0;
 
@@ -14,16 +15,14 @@ public class GoalAreaRender: MonoBehaviour
     private bool goalUnlocked = false;
 
     //positions of GoalArea
-    private float x;
-    private float y;
-    private float z;
-
+    private int x = 0;
+    private int y = 0;
+    private int z = 0;
 
     void Start()
     {
-        x = (float)Random.Range(mazeGenerator.GetMazeHeight() - 10, mazeGenerator.GetMazeHeight());
-        y = 0f;
-        z = (float)Random.Range(mazeGenerator.GetMazeHeight() - 10, mazeGenerator.GetMazeHeight());
+        (x, z) = UniqueNumberPairGenerator.GenerateUniqueNumberPair(mazeGenerator.GetMazeHeight()/2, mazeGenerator.GetMazeHeight(), mazeGenerator.GetMazeWidth()/2, mazeGenerator.GetMazeWidth());
+
         newCell = Instantiate(GoalArea_prefab, new Vector3(x * GoalAreaSize, y, y * GoalAreaSize), Quaternion.identity);
 
     }
@@ -50,7 +49,7 @@ public class GoalAreaRender: MonoBehaviour
 
     public void updateGoalArea()
     {
-        FindObjectOfType<TextModifier>().UpdateText("All Enemys Killed\nReach the goal!");
+        goalText.UpdateText("All Enemys Killed\nReach the goal!");
 
         goalUnlocked = true;
 
@@ -75,13 +74,13 @@ public class GoalAreaRender: MonoBehaviour
     public void EnemyKilled()
     {
         killCount++;
-        FindObjectOfType<TextModifier>().UpdateText(killCount, enemysTotal);
+        goalText.UpdateText(killCount, enemysTotal);
     }
 
     public void UpdateGoalCondition(int eT)
     {
         enemysTotal = eT;
-        FindObjectOfType<TextModifier>().UpdateText(0, eT);
+        goalText.UpdateText(0, eT);
     }
 
     public bool goalReached()
