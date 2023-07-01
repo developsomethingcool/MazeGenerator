@@ -23,7 +23,7 @@ public class GoalAreaRender: MonoBehaviour
     {
         (x, z) = UniqueNumberPairGenerator.GenerateUniqueNumberPair(mazeGenerator.GetMazeHeight()/2, mazeGenerator.GetMazeHeight(), mazeGenerator.GetMazeWidth()/2, mazeGenerator.GetMazeWidth());
 
-        newCell = Instantiate(GoalArea_prefab, new Vector3(x * GoalAreaSize, y, y * GoalAreaSize), Quaternion.identity);
+        newCell = Instantiate(GoalArea_prefab, new Vector3(x * GoalAreaSize, y, z * GoalAreaSize), Quaternion.identity);
 
     }
 
