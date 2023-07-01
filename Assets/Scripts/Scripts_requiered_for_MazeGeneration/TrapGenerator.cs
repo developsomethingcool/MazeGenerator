@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class TrapGenerator : MonoBehaviour
 {
@@ -14,6 +17,7 @@ public class TrapGenerator : MonoBehaviour
     private int[] typesTraps;
 
 
+
     /*private void Start()
     {
         cells = GetTrap();
@@ -24,10 +28,10 @@ public class TrapGenerator : MonoBehaviour
 
     }
 
-   /* void Awake()
-    {
-        Debug.Log("Wake up method functions!");
-    }*/
+    /* void Awake()
+     {
+         Debug.Log("Wake up method functions!");
+     }*/
 
     public TrapCell[] GetTrap()
     {
@@ -41,31 +45,32 @@ public class TrapGenerator : MonoBehaviour
         TrapCell[] positionsOfTraps = new TrapCell[numberOfTraps];
         int[] typesTraps = new int[numberOfTraps];
         TrapCell p;
-        
+
         for (int i = 0; i < numberOfTraps; i++)
         {
-            p = new TrapCell(Random.Range(0, mazeLength), Random.Range(0, mazeWidth));
+            (int number1, int number2) = UniqueNumberPairGenerator.GenerateUniqueNumberPair(0, mazeLength, 0, mazeWidth);
+            p = new TrapCell(number1, number2);
             positionsOfTraps[i] = p;
-         
+
             typesTraps[i] = Random.Range(0, 3);
-            
+
 
         }
 
         this.cells = positionsOfTraps;
         this.typesTraps = typesTraps;
-        return  positionsOfTraps;
+        return positionsOfTraps;
 
     }
 
-    public TrapCell[] GetterTrap(){
+    public TrapCell[] GetterTrap()
+    {
         return this.cells;
     }
     public int[] GetterTrapType()
     {
         return this.typesTraps;
     }
-
 }
 
 public class TrapCell
@@ -76,16 +81,16 @@ public class TrapCell
     {
         get
         {
-            return new Vector2Int(x, y);
+           return new Vector2Int(x, y);
         }
     }
 
     public TrapCell(int x, int y)
     {
-        // The coordinates of this cell in the maze grid.
-        this.x = x;
-        this.y = y;
+    // The coordinates of this cell in the maze grid.
+     this.x = x;
+     this.y = y;
 
     }
-
 }
+
