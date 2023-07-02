@@ -85,7 +85,111 @@ In the asset folder of our project one can find several folders
 
 ## Functionality and Features
 
-A description of the project's major functionalities and features.
+1. Player Movement
+    - **Walking and Running**: The player can move freely in the game world using standard walking controls. Additionally, they have the option to increase their movement speed by running, allowing them to traverse the environment quickly.
+        - Walking (WASD)
+        - Running holding "shift"
+
+    - **Jumping**: The player can perform jumps to overcome obstacles and reach higher platforms. They can execute single jumps or perform double jumps (after picking up the right loot) for enhanced vertical mobility.
+        - Jump ("space")
+
+    - **Shrinking**: The player has the  ability to shrink their character's size . This shrinking ability might grants them access to hidden or narrow passages, enabling them to discover secret areas and find alternative routes.
+        - Shrinking ("C")
+
+    - **Wallrunning**: To add an extra layer of agility, the player can execute wallruns. When near a suitable wall or surface, they can initiate a wallrun, defying gravity and traversing horizontally or vertically along the wall. This allows for dynamic and acrobatic movement through complex level designs.
+        - Being next to a wall and pressing "Q"
+
+    The combination of these movement functionalities provides players with a versatile set of options to navigate the game world.
+
+2. Loot System
+
+    - These pickups are dropped by defeated enemies, with each item having a specific chance to drop. The following seven pickups are available:
+
+    1. **Armor** Up: This pickup increases the player's armor, providing additional protection against incoming damage. It has a 25% chance to drop upon defeating an enemy.
+        -Armor up is represeted by a Hotdog
+
+    2. **Critical Chance Up**: By acquiring this pickup, players enhance their critical hit chance. This pickup has a 50% chance to drop when an enemy is defeated.
+        - Critical Chance Up is represented by a Cherry
+
+    3. **Damage Up**: This pickup empowers the player's attacks, granting a temporary increase in their base damage. It has a 100% chance to drop upon defeating an enemy.
+        - Damage Up is represented by a Block of cheese
+
+    4. **HP Up**: Upon collecting this pickup, the player's maximum health pool is expanded. It has a 100% chance to drop when an enemy is defeated.
+        - HP Up is represented by a Hamburger
+
+    5. **Health Regen Up**: This pickup augments the player's natural health regeneration rate, allowing them to recover health more quickly over time. It has a 50% chance to drop upon defeating an enemy.
+        - Health Regen Up is represented by a Banana
+
+    6. **Jump Up**: By acquiring this pickup, the player's jumping ability is enhanced. They gain increased vertical height or distance. It has a 10% chance to drop when an enemy is defeated.
+        - Jump Up is represented by an Olive
+
+    7. **Lifesteal Up**: This pickup grants the player a lifesteal effect on their attacks. When dealing damage to enemies, a portion of the inflicted damage is restored to the player's health. It has a 25% chance to drop upon defeating an enemy.
+        - Lifesteal Up is represented by a Watermelon
+
+    - Each defeated enemy drops one of these pickups, adding an element of excitement and surprise to the gameplay. The loot that apears is randomly picked out of the loot which is elegable by having a higher loot chance then the number rolled by a d100
+
+3. Enemy Types and AI Behavior
+
+    The Unity project features two distinct enemy types, each with unique characteristics and behaviors. The enemies in the game are equipped with different weapons and utilize an AI system that governs their actions based on three states: Patrolling, Chasing, and Attacking.
+
+    ## Sword Enemy
+
+    The Sword Enemy is a formidable adversary armed with a sword. They possess moderate strength and are skilled in close combat engagements. Here's an overview of their AI behavior:
+
+    - **Patrolling**: The Sword Enemy roams designated areas or follows predefined paths, ensuring the security of their assigned territory.
+
+    - **Chasing**: When the Sword Enemy detects the player's presence, they enter the Chasing state, pursuing the player with determination.
+
+    - **Attacking**: Once in close proximity to the player, the Sword Enemy  their sword, requiring players to fight back.
+
+    ## Dual Axes Enemy
+
+    The Dual Axes Enemy is a smaller and more agile adversary, equipped with two axes. They rely on nimble movements to outmaneuver their opponents. Here's an overview of their AI behavior:
+
+    - **Patrolling**: The Dual Axes Enemy scouts their assigned areas and maintains a vigilant presence, utilizing their agility to navigate the environment effectively.
+
+    - **Chasing**: When the Dual Axes Enemy spots the player, they swiftly transition into the Chasing state, relentlessly pursuing the player.
+
+    - **Attacking**: In the Attacking state, the Dual Axes Enemy executes a flurry of agile and rapid attacks, challenging the player.
+
+    The AI-driven behaviors of both enemy types enhance the challenge and variety of encounters, requiring players to adapt their strategies accordingly. Players must utilize their combat skills and situational awareness to overcome the adversaries they encounter.
+
+
+4. Random Maze Generation
+
+5. Options Menu
+
+6. HUD Functionality
+
+    The Heads-Up Display (HUD) in this Unity project provides players with important information and visual feedback to enhance their gameplay experience. The HUD includes the following elements:
+
+    ## Health Indicator (Bottom Right)
+
+    Located at the bottom right corner of the screen, the Health Indicator displays the player's current health status. It provides a visual representation of the player's remaining health, allowing players to quickly assess their well-being during intense gameplay moments. The Health Indicator is designed to be intuitive and easy to understand, ensuring players can monitor their health at a glance.
+
+    ## Current Goal Display (Top Left)
+
+    At the top left corner of the screen, the Current Goal Display showcases the current objective or goal that players need to accomplish. This element provides players with clear guidance and helps them stay focused on their objectives throughout the game. Whether it's a mission objective, a quest marker, or a specific task, the Current Goal Display ensures players are aware of their immediate goals.
+
+    ## Timer (Counting Up) (Top Right)
+
+    Positioned at the top right corner of the screen, the Timer displays a continuously updating count, measuring the elapsed time during gameplay. The Timer can be used to create time-based challenges or provide players with a sense of urgency. It adds an additional layer of excitement and competitiveness, allowing players to track their progress and strive for better completion times.
+
+    The HUD elements are strategically placed on the screen to minimize distractions while providing crucial information to players. The Health Indicator, Current Goal Display, and Timer work together to enhance player immersion, improve situational awareness, and create a dynamic gameplay experience.
+
+7. Camera Functionality
+
+    The camera system in this Unity project is based on Cinemachine, offering smooth and immersive gameplay perspectives. The camera allows players to seamlessly switch between a third-person view and a first-person view by pressing the "O" button. Here are the details of the camera functionality:
+
+    ## Third-Person View
+
+    In the default third-person view, the camera is positioned behind the player character, providing a broader perspective of the game world. This perspective allows players to have a better sense of their surroundings and enhances situational awareness. The camera smoothly follows the character's movements, ensuring a smooth and immersive experience.
+
+    ## First-Person View
+
+    By pressing the "O" button, players can instantly switch to a first-person view. In this mode, the camera is positioned at the character's eye level, providing a more immersive and intimate perspective. This view allows players to experience the game world from the character's point of view, bringing them closer to the action.
+
+    The ability to toggle between third-person and first-person views adds versatility to the gameplay experience. Players can choose the perspective that best suits their playstyle or adapt their view based on specific situations. Whether it's exploring the Maze in third person or engaging in intense combat sequences in first person, the camera system offers a seamless transition and enhances the overall immersion of the game.
 
 ## Code Documentation
 
