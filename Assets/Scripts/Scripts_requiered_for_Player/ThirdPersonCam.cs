@@ -86,18 +86,7 @@ public class ThirdPersonCam : MonoBehaviour
         }
         else if (currentStyle == Camerastyle.firstPerson)
         {
-            /*
-
-                float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-                float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-
-                rotationX -= mouseY;
-                rotationX = Mathf.Clamp(rotationX, -90f, 90f);
-
-                transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
-                player.Rotate(Vector3.up * mouseX);
-                transform.Rotate(Vector3.up * mouseX);
-            */
+            //rotating the player with the camera
             orientation.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
 
 

@@ -26,9 +26,11 @@ public class Enemy_AI : MonoBehaviour
     // States
     public float sightRange, attackRange; // The range for sight and attack detection
     public bool playerInSight, playerInAttackRange; // Flags to track if the player is in sight and attack range
-    private bool addedToDeathcount = false;
+    private bool addedToDeathcount = false; //Variable used to count the enemy ONETIME to the gaolstate
 
     public int numberKilledEnemies = 0; //number of killed enemies
+
+    //Awakefunktion used to set variables
     private void Awake()
     {
         player = GameObject.Find("Player").transform; // Find and assign the player's transform
@@ -36,22 +38,21 @@ public class Enemy_AI : MonoBehaviour
         sightCheck.SetVariable(sightRange, whatisPlayer); // Set the sight range and target mask for the FieldOfView component
         StartCoroutine(AttackRangeChecker()); // Start the coroutine to check the attack range
         attackCooldown = attributeManager.attackcooldown; // Get the attack cooldown from the AttributeManager component
+        gameObject.GetComponent<Animator>().enabled = false; //Setting animator false it is only used for the death animation right now
     }
 
-    private void Start()
-    {
-        gameObject.GetComponent<Animator>().enabled = false;
-    }
-
+ 
+    //Enumerator is basicly a thread which runns parallel to the other code
     private IEnumerator AttackRangeChecker()
     {
-        float delay = 0.2f;
-        WaitForSeconds wait = new WaitForSeconds(delay);
+        float delay = 0.2f; //delay used for waiting
+        WaitForSeconds wait = new WaitForSeconds(delay);    //creat a new wait for seconds which represents 1/5 second
 
+        //infinit while loop
         while (true)
         {
-            yield return wait;
-            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatisPlayer);
+            yield return wait; //The enumerator whatits the specified time befor contiuing
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatisPlayer); //Checks if the player is in attackrange
         }
     }
 
@@ -60,6 +61,7 @@ public class Enemy_AI : MonoBehaviour
         //retirvig Player death status from the attribute manager
         if (attributeManager.dead)
         {
+            //If the enemy didn't yet count towords the endgoal this is changed
             if (!addedToDeathcount)
             {
                 addedToDeathcount=true;
@@ -67,15 +69,16 @@ public class Enemy_AI : MonoBehaviour
 
             }
 
+            //Starting to play the death animation 
             if (!playingDeathAnimation)
             {
-                gameObject.GetComponent<Animator>().enabled = true;
-                animator.SetTrigger("Death");
-                Debug.Log("Playing death animation!!");
-                playingDeathAnimation = true;
+                gameObject.GetComponent<Animator>().enabled = true;//first aktivating the animator again
+                animator.SetTrigger("Death"); //Setting trigger to death so that the animator players the deth animation
+                playingDeathAnimation = true; //Changing the boolean so this part is only called ones
             }
 
         }
+        //If the enemy is not dead
         else
         {
             // Check for sight and attack range
@@ -107,26 +110,30 @@ public class Enemy_AI : MonoBehaviour
         }
     }
 
+    //Patroling the standart state for the enemy. Here the enemy walks toward a random point in its radius
     private void Patroling()
     {
-        if (!walkpointSet)
+        if (!walkpointSet) //When there is no current walkpoint
         {
             SearchWalkPoint(); // Find a new random walk point
         }
 
-        if (walkpointSet)
+        if (walkpointSet) //Wehen thir is a walkpoint the enemy walks towrds it
         {
             agent.SetDestination(walkpoint); // Set the agent's destination to the walk point
         }
 
+        //Checking for distance between enemy and its walkpoint
         Vector3 distanceToWalkpoint = transform.position - walkpoint;
 
+        //When the enemy is close to the walkpoint the walkpoint is deactivated and therefor will creat a new one the next time the funktion is called 
         if (distanceToWalkpoint.magnitude < 1f)
         {
             walkpointSet = false; // If the distance to the walk point is close, mark walkpointSet as false to find a new walk point
         }
     }
 
+    //Funktion used to find a new walkpoint for patroling
     private void SearchWalkPoint()
     {
         // Calculate random point within range

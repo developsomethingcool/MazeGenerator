@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    //All for ui screens
     public GameObject mainMenu;
     public GameObject options;
     public GameObject gameoverMenu;
@@ -16,7 +17,10 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        if(LoadingSettings.showRespawnMenu == "gameoverMenu")
+        //in case if scene Menu defined as gameoverMenu, then load GameOverMenu
+        //in case if Menu defined as victoryMenu, then load victoryMenu
+        //otherwise load MainMenu
+        if (LoadingSettings.showRespawnMenu == "gameoverMenu")
         {
             ShowGameoverMenu();
         } else if (LoadingSettings.showRespawnMenu == "victoryMenu")
@@ -31,46 +35,53 @@ public class MenuController : MonoBehaviour
         textMeshProUI = GetComponent<TextMeshProUGUI>();
     }
 
+    // start the Gameplay
     public void PlayGame()
     {
-        Debug.Log("Inside of player menu!!!!!!!!!!!!!!!!!!!");
         SceneManager.LoadScene("Gameplay");
+        //make mouse cursor invisible
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
+    //restart the game
     public void RestartGame()
-    {
-        Debug.Log("Inside of player menu!!!!!!!!!!!!!!!!!!!");
+    {   
         SceneManager.LoadScene("Gameplay");
+        //make mouse cursor invisible
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
+    //shows the main menu by enabling the mainMenu game object and disabling other menus.
     public void ShowMainMenu()
     {
         DisableAllMenus();
         mainMenu.SetActive(true);
     }
 
+    //shows the options menu by enabling the options game object and disabling other menus.
     public void ShowOptions()
     {
         DisableAllMenus();
         options.SetActive(true);
     }
 
+    // shows the game over menu by enabling the gameoverMenu game object and disabling other menus.
     public void ShowGameoverMenu()
     {
         DisableAllMenus();
         gameoverMenu.SetActive(true);
     }
 
+    //quit the game
     public void QuitGame()
     {
         Debug.Log("QUIT!");
         Application.Quit();
     }
 
+    //shows the victory menu by enabling the victoryMenu game object and disabling other menus
     public void ShowVictoryMenu()
     {
         DisableAllMenus();
@@ -80,6 +91,7 @@ public class MenuController : MonoBehaviour
 
     }
 
+    //method that disables all menu game objects
     private void DisableAllMenus()
     {
         mainMenu.SetActive(false);

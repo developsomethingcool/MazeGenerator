@@ -1,17 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 public class AttributeManager : MonoBehaviour
 {
+    //dictunary of the attributes needed for updating stats with loot
     [Header("Current Values")]
-    public Dictionary<string, float> variables = new Dictionary<string, float>();
+    public Dictionary<string, float> variables = new Dictionary<string, float>(); 
 
+    //bools for enabeling lifesteal and healthregen
     [Header("Attribute Options")]
     public bool enableHealthregen = false;
     public bool eneableLifesteal = false;
 
+    //normal attributes
     [Header("Attributes")]
     public float health;
     public float attack;
@@ -24,14 +28,16 @@ public class AttributeManager : MonoBehaviour
     public float attackcooldown;
     private float healRegenDelay = 5f;
 
+    //healthbar script reference used to update the healthbar when taking damage
     [Header("References")]
     public Healthbar_Script healthbarScript;
 
-    [Header("Status")]
-    public bool dead = false;
-    private bool healthregenActive = false;
-    private float maxHealth;
-    public bool player = false;
+    //various values
+    [Header("Other Values")]
+    public bool dead = false; //bool representing if the carryer is dead
+    private bool healthregenActive = false; // helathregen runns parallel so this is used to aktivate it only one time
+    private float maxHealth; //stores max health to avoid overhealing
+    public bool player = false; //sprecial behaviour for the player needs the check if player or not
 
 
     // Start is called before the first frame update
@@ -42,6 +48,8 @@ public class AttributeManager : MonoBehaviour
 
         // Store the maximum health value
         maxHealth = health;
+
+        //if the attributemanager belongs to a player we set jumps aswell
         if (player)
         {
             try
@@ -115,20 +123,19 @@ public class AttributeManager : MonoBehaviour
             stopHealthregen();
         }
 
-        healthbarScript.SetHealth(health);
     }
 
     // Function to apply damage to the character
     public void TakeDamage(float damage)
     {
         // Reduce damage based on armor percentage
-        Debug.Log("Get Damaged" + (damage - (damage * armor / 100)));
         health -= damage - (damage * armor / 100);
-
-
+        //updating health
+        healthbarScript.SetHealth(health);
+        //When the carryer has zero or less hp
         if (health <= 0)
         {
-            // If health drops to or below 0, mark the character as dead, invoke the Despawn method after 5 seconds, and disable the health bar
+            //mark the character as dead, invoke the Despawn method after 5 seconds, and disable the health bar
             dead = true;
             Invoke("Despawn", 5f);
             healthbarScript.gameObject.SetActive(false);
@@ -138,22 +145,25 @@ public class AttributeManager : MonoBehaviour
     // Method to handle character despawning
     private void Despawn()
     {
+        //if the dead person has a lootbag it will drop loot
         if (GetComponent<LootBag>() != null)
         {
-            // If the character has the LootBag component, instantiate loot at the character's position
+            //instantiate loot at the character's position
             GetComponent<LootBag>().InstatiateLoot(transform.position);
         }
+        //deactivating the carryer mking it disabpear
         gameObject.SetActive(false);
     }
 
     // Coroutine for health regeneration
     private IEnumerator HealthRegen()
     {
-        healthregenActive = true;
+        healthregenActive = true; //setting healthregenAktive as true
+
         while (true)
         {
-            yield return new WaitForSecondsRealtime(healRegenDelay);
-            heal(lifeRegenRate);
+            yield return new WaitForSecondsRealtime(healRegenDelay); //After a delay of x seconds[definded in the variables above]
+            heal(lifeRegenRate); //Heal for the given rate
         }
     }
 
@@ -172,6 +182,9 @@ public class AttributeManager : MonoBehaviour
             {
                 health = health + amount;
             }
+
+            //updating health
+            healthbarScript.SetHealth(health);
         }
     }
 

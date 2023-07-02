@@ -8,7 +8,7 @@ public class Billbord : MonoBehaviour
 
     private void Start()
     {
-        cam = GameObject.Find("Camera").transform;
+        cam = GameObject.Find("Camera").transform;//find the emty object attached to the player calle camera
     }
 
     // Update is called once per frame
