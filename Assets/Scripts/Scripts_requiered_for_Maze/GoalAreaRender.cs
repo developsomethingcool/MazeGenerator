@@ -1,29 +1,39 @@
+
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GoalAreaRender: MonoBehaviour
 {
+    //prefab of goal area
     [SerializeField] GameObject GoalArea_prefab;
     [SerializeField] MazeGenerator mazeGenerator;
-    [SerializeField] TextModifier goalText;
     [SerializeField] int killCount = 0;
     [SerializeField] int enemysTotal = 0;
 
     public float GoalAreaSize = 1f;
     private GameObject newCell;
+    private GameObject dPointer;
     private bool goalUnlocked = false;
 
     //positions of GoalArea
-    private int x = 0;
-    private int y = 0;
-    private int z = 0;
+    private float x;
+    private float y;
+    private float z;
 
-    void Start()
+    //
+    private TextMeshProUGUI textMeshPro;
+    int counter = 0;
+
+    void Start()  
     {
-        (x, z) = UniqueNumberPairGenerator.GenerateUniqueNumberPair(mazeGenerator.GetMazeHeight()/2, mazeGenerator.GetMazeHeight(), mazeGenerator.GetMazeWidth()/2, mazeGenerator.GetMazeWidth());
-
-        newCell = Instantiate(GoalArea_prefab, new Vector3(x * GoalAreaSize, y, z * GoalAreaSize), Quaternion.identity);
+        x = (float)Random.Range(mazeGenerator.GetMazeHeight() - 10, mazeGenerator.GetMazeHeight());
+        y = 0f;
+        z = (float)Random.Range(mazeGenerator.GetMazeHeight() - 10, mazeGenerator.GetMazeHeight());
+        newCell = Instantiate(GoalArea_prefab, new Vector3(x * GoalAreaSize, y, y * GoalAreaSize), Quaternion.identity);
+        textMeshPro = newCell.GetComponentInChildren<TextMeshProUGUI>();
+        textMeshPro.enabled = false;
 
     }
 
@@ -34,8 +44,12 @@ public class GoalAreaRender: MonoBehaviour
             if (killCount >= enemysTotal)
             {
                 updateGoalArea();
+                textMeshPro.enabled = true;
+
             }
         }
+        textMeshPro.text = distanceBetweenPlayerAndPoint().ToString();
+        
         
     }
 
@@ -49,7 +63,7 @@ public class GoalAreaRender: MonoBehaviour
 
     public void updateGoalArea()
     {
-        goalText.UpdateText("All Enemys Killed\nReach the goal!");
+        FindObjectOfType<TextModifier>().UpdateText("All Enemys Killed\nReach the goal!");
 
         goalUnlocked = true;
 
@@ -74,18 +88,26 @@ public class GoalAreaRender: MonoBehaviour
     public void EnemyKilled()
     {
         killCount++;
-        goalText.UpdateText(killCount, enemysTotal);
+        FindObjectOfType<TextModifier>().UpdateText(killCount, enemysTotal);
     }
 
     public void UpdateGoalCondition(int eT)
     {
         enemysTotal = eT;
-        goalText.UpdateText(0, eT);
+        FindObjectOfType<TextModifier>().UpdateText(0, eT);
     }
 
     public bool goalReached()
     {
         return goalUnlocked;
+    }
+
+    public float distanceBetweenPlayerAndPoint()
+    {
+        //float distanceSquared = Mathf.Pow((FindObjectOfType<PlayerMovment>().playersPosition().x - x),2) + Mathf.Pow((FindObjectOfType<PlayerMovment>().playersPosition().z -z),2);
+        //float distance = Mathf.Sqrt(distanceSquared);
+        return Vector3.Distance(FindObjectOfType<PlayerMovment>().playersPosition(), new Vector3(x,y,z));
+        
     }
 
 }
