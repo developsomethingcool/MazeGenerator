@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 6fc2b24eef2374f40b9d9919d3b0b1da, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: fb0210069c68d764d8f2d5cbafae1ded, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3206,7 +3206,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Navemesh_Agent_surface
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7076806511673192228, guid: 958d27b0d573c9542b7092c2601e9f60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 958d27b0d573c9542b7092c2601e9f60, type: 3}
 --- !u!4 &2604392594601383996
 Transform:
