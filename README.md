@@ -177,7 +177,20 @@ In the asset folder of our project one can find several folders
 
     By incorporating the Trap Generator, the game creates a dynamic and immersive environment for players to explore. The randomly generated traps add an element of surprise and challenge, keeping players engaged and enhancing the overall gameplay experience.
 
-6. ## Menu 
+6. ## Goal Area
+
+    The Goal Area is a key element in the game that plays a crucial role in the player's journey towards victory. This area serves as the ultimate objective for the player to reach, marking the completion of the game. Here's an overview of the Goal Area functionality:
+
+    - **Activation Condition**: To activate the Goal Area, the player must fulfill a specific condition, which involves destroying a sufficient number of enemies throughout the game. This condition adds an additional challenge and incentive for players to engage in combat and overcome adversaries. When the goal area aktivates it changes it's color from red to green indicating the change and that it is now aktive.
+
+    - **Accessing the Goal Area**: Once the activation condition is met, the Goal Area becomes accessible to the player. It serves as a designated location within the labyrinth that players must navigate towards to complete the game successfully.
+
+    - **Objective and Victory**: The player's primary task upon reaching the Goal Area is to navigate the labyrinth and make their way to this specific area. Successfully reaching the Goal Area signifies the player's victory and accomplishment in the game.
+
+    The inclusion of the Goal Area adds a sense of purpose and progression to the gameplay experience. By establishing a condition for activation and a clear objective, players are motivated to engage in combat, strategize their approach, and navigate the labyrinth effectively.
+
+
+7. ## Menu 
     The game features four distinct menus that provide players with various options and interactions. Each menu serves a specific purpose and enhances the overall user experience. Here are the details of each menu:
 
     ## Main Menu
@@ -213,7 +226,7 @@ In the asset folder of our project one can find several folders
 
     The menu system in the game enhances user engagement and provides convenient access to game features, settings, and progress. With intuitive navigation and clear options, players can easily navigate the menus, customize their gameplay experience, and continue their journey through the maze-solving adventure.
 
-7. ## HUD Functionality
+8. ## HUD Functionality
 
     The Heads-Up Display (HUD) in this Unity project provides players with important information and visual feedback to enhance their gameplay experience. The HUD includes the following elements:
 
@@ -231,7 +244,7 @@ In the asset folder of our project one can find several folders
 
     The HUD elements are strategically placed on the screen to minimize distractions while providing crucial information to players. The Health Indicator, Current Goal Display, and Timer work together to enhance player immersion, improve situational awareness, and create a dynamic gameplay experience.
 
-8. ## Camera Functionality
+9. ## Camera Functionality
 
     The camera system in this Unity project is based on Cinemachine, offering smooth and immersive gameplay perspectives. The camera allows players to seamlessly switch between a third-person view and a first-person view by pressing the "O" button. Here are the details of the camera functionality:
 
@@ -248,7 +261,7 @@ In the asset folder of our project one can find several folders
 
 ## Trouble we encountert on the way
 
-Common issues, troubleshooting tips, and frequently asked questions.
+We encountert multiple troubels on our journly to 
 
 ## How to play
 
