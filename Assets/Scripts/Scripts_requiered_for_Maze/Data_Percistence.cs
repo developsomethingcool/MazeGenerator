@@ -9,6 +9,7 @@ public class Data_Percistence : MonoBehaviour
 
     public float mazeSize = 3;
     public float difficulty = 3;
+    [SerializeField] private string endTime = "0";
 
     private void Awake()
     {
@@ -31,6 +32,11 @@ public class Data_Percistence : MonoBehaviour
         Data_Percistence.Instance.difficulty = diff;
     }
 
+    public void SetEndTime(string endTime)
+    {
+        Data_Percistence.Instance.endTime = endTime;
+    }
+
     public int getMazeSize()
     {
         return (int)Data_Percistence.Instance.mazeSize;
@@ -39,6 +45,11 @@ public class Data_Percistence : MonoBehaviour
     public int getDifficulty()
     {
         return (int)Data_Percistence.Instance.difficulty;
+    }
+
+    public string getEndTime()
+    {
+        return Data_Percistence.Instance.endTime;
     }
 
     private void Start()
