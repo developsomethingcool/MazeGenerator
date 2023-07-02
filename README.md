@@ -272,7 +272,7 @@ In the asset folder of our project one can find several folders
 - In general minor changes in a code or the Unity interface could lead to a problem, which took a lot of time to identify but only a little to fix.
 
 
-## How to play the game
+## How to play
 
 1. Clone the repository: Start by cloning the repository to your local machine using the following command:
 
