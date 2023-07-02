@@ -1,4 +1,5 @@
 # PHANTOMS LABYRINTH
+- Unity Version => 2021.3.25f1
 
 Welcome to the game "Phantom's Labyrinth"! In this thrilling adventure, players are tasked with finding their way through a treacherous maze filled with cunning traps and formidable enemies. Armed with their trusty sword, players must eliminate all enemies to successfully escape the labyrinth. The challenge lies in completing the mission as quickly as possible, testing the player's speed and strategic thinking. Are you ready to take on the Phantom's Labyrinth and prove your mettle?
 
@@ -75,7 +76,7 @@ In the asset folder of our project one can find several folders
 
 ## Functionality and Features
 
-1. Player Movement
+1. ## Player Movement
     - **Walking and Running**: The player can move freely in the game world using standard walking controls. Additionally, they have the option to increase their movement speed by running, allowing them to traverse the environment quickly.
         - Walking (WASD)
         - Running holding "shift"
@@ -91,7 +92,7 @@ In the asset folder of our project one can find several folders
 
     The combination of these movement functionalities provides players with a versatile set of options to navigate the game world.
 
-2. Loot System
+2. ## Loot System
 
     - These pickups are dropped by defeated enemies, with each item having a specific chance to drop. The following seven pickups are available:
 
@@ -118,11 +119,11 @@ In the asset folder of our project one can find several folders
 
     - Each defeated enemy drops one of these pickups, adding an element of excitement and surprise to the gameplay. The loot that apears is randomly picked out of the loot which is elegable by having a higher loot chance then the number rolled by a d100
 
-3. Enemy Types and AI Behavior
+3. ## Enemy Types and AI Behavior
 
     The Unity project features two distinct enemy types, each with unique characteristics and behaviors. The enemies in the game are equipped with different weapons and utilize an AI system that governs their actions based on three states: Patrolling, Chasing, and Attacking.
 
-    ## Sword Enemy
+    1. Sword Enemy
 
     The Sword Enemy is a formidable adversary armed with a sword. They possess moderate strength and are skilled in close combat engagements. Here's an overview of their AI behavior:
 
@@ -132,7 +133,7 @@ In the asset folder of our project one can find several folders
 
     - **Attacking**: Once in close proximity to the player, the Sword Enemy  their sword, requiring players to fight back.
 
-    ## Dual Axes Enemy
+    2. Dual Axes Enemy
 
     The Dual Axes Enemy is a smaller and more agile adversary, equipped with two axes. They rely on nimble movements to outmaneuver their opponents. Here's an overview of their AI behavior:
 
@@ -145,7 +146,7 @@ In the asset folder of our project one can find several folders
     The AI-driven behaviors of both enemy types enhance the challenge and variety of encounters, requiring players to adapt their strategies accordingly. Players must utilize their combat skills and situational awareness to overcome the adversaries they encounter.
 
 
-4. Random Maze Generation
+4. ## Random Maze Generation
     The Unity project features a random maze generation system that creates unique mazes for players to navigate. The maze generation process follows the following steps:
 
     1. **Creating the Maze Cells**: A predefined number of maze cells is generated, with each cell initially containing all four walls.
@@ -162,7 +163,7 @@ In the asset folder of our project one can find several folders
 
     By utilizing this random maze generation system, players can enjoy exploring new and diverse mazes in each playthrough, enhancing the overall gameplay experience.
 
-5. Trap Generator
+5. ## Trap Generator
 
     The Trap Generator is a feature in the game that enhances the labyrinth experience by introducing randomly generated traps. This feature adds excitement and unpredictability to gameplay, ensuring a balanced and engaging challenge for players. Here are the key details of the Trap Generator:
 
@@ -176,7 +177,7 @@ In the asset folder of our project one can find several folders
 
     By incorporating the Trap Generator, the game creates a dynamic and immersive environment for players to explore. The randomly generated traps add an element of surprise and challenge, keeping players engaged and enhancing the overall gameplay experience.
 
-6. Menu 
+6. ## Menu 
     The game features four distinct menus that provide players with various options and interactions. Each menu serves a specific purpose and enhances the overall user experience. Here are the details of each menu:
 
     ## Main Menu
@@ -212,7 +213,7 @@ In the asset folder of our project one can find several folders
 
     The menu system in the game enhances user engagement and provides convenient access to game features, settings, and progress. With intuitive navigation and clear options, players can easily navigate the menus, customize their gameplay experience, and continue their journey through the maze-solving adventure.
 
-7. HUD Functionality
+7. ## HUD Functionality
 
     The Heads-Up Display (HUD) in this Unity project provides players with important information and visual feedback to enhance their gameplay experience. The HUD includes the following elements:
 
@@ -230,7 +231,7 @@ In the asset folder of our project one can find several folders
 
     The HUD elements are strategically placed on the screen to minimize distractions while providing crucial information to players. The Health Indicator, Current Goal Display, and Timer work together to enhance player immersion, improve situational awareness, and create a dynamic gameplay experience.
 
-8. Camera Functionality
+8. ## Camera Functionality
 
     The camera system in this Unity project is based on Cinemachine, offering smooth and immersive gameplay perspectives. The camera allows players to seamlessly switch between a third-person view and a first-person view by pressing the "O" button. Here are the details of the camera functionality:
 
@@ -244,28 +245,18 @@ In the asset folder of our project one can find several folders
 
     The ability to toggle between third-person and first-person views adds versatility to the gameplay experience. Players can choose the perspective that best suits their playstyle or adapt their view based on specific situations. Whether it's exploring the Maze in third person or engaging in intense combat sequences in first person, the camera system offers a seamless transition and enhances the overall immersion of the game.
 
-## Code Documentation
 
-Detailed explanations of key scripts and code components.
-
-## Assets and Resources
-
-A list and description of third-party assets, libraries, and resources used.
-
-## Troubleshooting and FAQs
+## Trouble we encountert on the way
 
 Common issues, troubleshooting tips, and frequently asked questions.
 
-## Contributing and Collaboration
+## How to play
 
 Guidelines for contributing to the project and collaborating with others.
 
-## Credits and Acknowledgments
+## Credits
 
 Acknowledgment of individuals and resources that contributed to the project.
 
-## Appendices
-
-Additional information, diagrams, or technical details.
 
 
