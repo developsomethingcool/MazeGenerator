@@ -1,13 +1,3 @@
-# Maze Game
-
-Welcome to the Maze Game repository! This is a simple maze game implemented in Unity. Navigate through the maze, kill enemies, and try to find the exit!
-
-## Features
-
-- Randomly generated mazes for a new experience every time.
-- Enemies generated at random positions
-
-
 # PHANTOMS LABYRINTH
 
 Welcome to the game "Phantom's Labyrinth"! In this thrilling adventure, players are tasked with finding their way through a treacherous maze filled with cunning traps and formidable enemies. Armed with their trusty sword, players must eliminate all enemies to successfully escape the labyrinth. The challenge lies in completing the mission as quickly as possible, testing the player's speed and strategic thinking. Are you ready to take on the Phantom's Labyrinth and prove your mettle?
