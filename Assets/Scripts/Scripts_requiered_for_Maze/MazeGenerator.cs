@@ -58,7 +58,7 @@ public class MazeGenerator : MonoBehaviour
     }
 
 
-
+    // Method to retrieve the generated maze as a 2D array of MazeCell objects
     public MazeCell[,] GetMaze()
     {
         maze = new MazeCell[mazeWidth, mazeHeight];
@@ -74,6 +74,7 @@ public class MazeGenerator : MonoBehaviour
 
     }
 
+    // Create a list of Direction objects
     List<Direction> directions = new List<Direction>
     {
         Direction.Up, Direction.Down, Direction.Left, Direction.Right,

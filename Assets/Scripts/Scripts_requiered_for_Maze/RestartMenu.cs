@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class RestartMenu : MonoBehaviour
 {
+    //move from one scene to another
     public void PlayGame()
     {
-       Debug.Log("Inside of player menu!!!!!!!!!!!!!!!!!!!");
-
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-       
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);  
     }
 }
