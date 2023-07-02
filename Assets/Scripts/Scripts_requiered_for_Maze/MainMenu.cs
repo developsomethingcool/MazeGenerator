@@ -9,12 +9,14 @@ public class MainMenu : MonoBehaviour
     public GameObject options;
     public GameObject gameoverMenu;
 
+    //Loads GamePlay scene when the game starts
     public void PlayGame()
     {
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    //Quits the game
     public void QuitGame()
     {
         Debug.Log("QUIT!");
