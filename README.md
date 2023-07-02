@@ -3,8 +3,6 @@
 
 Welcome to the game "Phantom's Labyrinth"! In this thrilling adventure, players are tasked with finding their way through a treacherous maze filled with cunning traps and formidable enemies. Armed with their trusty sword, players must eliminate all enemies to successfully escape the labyrinth. The challenge lies in completing the mission as quickly as possible, testing the player's speed and strategic thinking. Are you ready to take on the Phantom's Labyrinth and prove your mettle?
 
-<video src="PHANTOMS%20LABYRINTH_compressed.mp4" controls title="Title"></video>
-
 ## Table of Contents
 
 - [Project Structure](#project-structure)
