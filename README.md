@@ -262,8 +262,14 @@ In the asset folder of our project one can find several folders
 
 ## Trouble we encountert on the way
 
-We encountert multiple troubels on our journly to 
-
+- When we randomly generated traps, multiple traps could be generated in the same position or they could overlap with Goal area.
+- sometimes problem did arise out of nowhere with no concernable reason. But the easy fix was to save and start Unity again
+- Problems of the physics engine. Sometime ridigeBodys wouldn't fall down even though theye were effected by gravity
+- While merging the branches we crashed our solution multiple times and had to revert multiple commits
+- While generating scenery some buttons expanded and covered the whole script, so it was not easy to find out why some buttons did not work properly.
+- Problems with the unity animation system. But when looking online we are not the only ones.
+- Porting assably of scripts and gameobjects from one unity Project to another
+- In general minor changes in a code or the Unity interface could lead to a problem, which took a lot of time to identify but only a little to fix.
 ## How to play
 
 Guidelines for contributing to the project and collaborating with others.
