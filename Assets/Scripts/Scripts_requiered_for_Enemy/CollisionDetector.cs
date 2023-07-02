@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This script is ised for the detection between loot and the player. 
+ * When the player touches the loot this script adds the adequet states to the players attribute manager and deltes itself.
+ */
+
 public class CollisionDetector : MonoBehaviour
 {
     private string attributName; // The name of the attribute affected by the collision
     private float change; // The amount of change to the attribute
 
+    //Setfunktion used to set the name and value of the attribute represente by the lootobject this script is attached to
     public void setValues(string name, float value)
     {
         attributName = name;
