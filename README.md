@@ -263,20 +263,46 @@ In the asset folder of our project one can find several folders
 ## Trouble we encountert on the way
 
 - When we randomly generated traps, multiple traps could be generated in the same position or they could overlap with Goal area.
-- sometimes problem did arise out of nowhere with no concernable reason. But the easy fix was to save and start Unity again
-- Problems of the physics engine. Sometime ridigeBodys wouldn't fall down even though theye were effected by gravity
-- While merging the branches we crashed our solution multiple times and had to revert multiple commits
+- sometimes problem did arise out of nowhere with no concernable reason. But the easy fix was to save and start Unity again.
+- Problems of the physics engine. Sometime ridigeBodys wouldn't fall down even though theye were effected by gravity.
+- While merging the branches we crashed our solution multiple times and had to revert multiple commits.
 - While generating scenery some buttons expanded and covered the whole script, so it was not easy to find out why some buttons did not work properly.
 - Problems with the unity animation system. But when looking online we are not the only ones.
-- Porting assably of scripts and gameobjects from one unity Project to another
+- Porting assably of scripts and gameobjects from one unity Project to another.
 - In general minor changes in a code or the Unity interface could lead to a problem, which took a lot of time to identify but only a little to fix.
+
+
 ## How to play
 
-Guidelines for contributing to the project and collaborating with others.
+1. Clone the repository: Start by cloning the repository to your local machine using the following command:
+
+"git clone <repository-url>"
+
+2. Build and run the game: Once you have the repository cloned, open the project in your preferred game development environment (e.g., Unity) and build the game. Run the built executable to launch the game.
+
+3. Objective: The objective of the game is to navigate through the labyrinth, overcome various obstacles and traps, and reach the goal area to win the game. Pay attention to the game's specific rules and mechanics, as they may vary depending on the project.
+
+4. Controls: Familiarize yourself with the game's controls to effectively navigate the game world. These controls may include standard movement controls (e.g., WASD keys), special abilities (e.g., jumping, shrinking), and interaction with objects and characters in the game.
+
+## Guidelines for Contributing and Collaboration
+
+1. Fork the repository: If you wish to contribute to the project or collaborate with others, start by forking the repository to your GitHub account. This will create a copy of the project under your account that you can freely modify.
+
+2. Create a new branch: Before making any changes or additions, create a new branch in your forked repository. This helps keep your changes separate from the main codebase and makes it easier to track and manage modifications.
+
+3. Make changes and additions: Make your desired changes or additions to the project code, assets, or documentation. Follow best practices, adhere to coding guidelines, and ensure that your modifications align with the project's goals and objectives.
+
+4. Commit and push changes: Once you are satisfied with your modifications, commit your changes to the branch and push them to your forked repository.
+
+5. Create a pull request: When you are ready to merge your changes into the main project, create a pull request. Provide a clear description of the changes you made, their purpose, and any relevant information that helps reviewers understand your contribution.
+
+6. Collaborate and iterate: Collaborate with other contributors and maintainers through the pull request. Address any feedback or suggestions provided by reviewers and iterate on your changes as necessary. This process ensures that the project maintains a high standard of quality and consistency.
+
+By following these guidelines, you can contribute to the project, collaborate effectively with others, and help shape the game into an even better experience for players.
 
 ## Credits
 
-Acknowledgment of individuals and resources that contributed to the project.
+Team Members: Hendrik Kremer, Oleksandr Pometun, Asma Akter
 
 
 
