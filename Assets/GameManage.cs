@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManage : MonoBehaviour
 {
     //bool gameEnded = false;
     public string nameOfTheMenu = "";
+
+    //tracker for play time for victory screen
+
     public void EndGame()
     {
         Debug.Log("Game over!");

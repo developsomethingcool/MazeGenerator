@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,9 @@ public class MenuController : MonoBehaviour
     public GameObject options;
     public GameObject gameoverMenu;
     public GameObject victoryMenu;
+
+    //text to output a final time
+    public TextMeshProUGUI textMeshProUI;
 
     private void Start()
     {
@@ -23,7 +27,8 @@ public class MenuController : MonoBehaviour
         {
             ShowMainMenu();
         }
-       
+
+        textMeshProUI = GetComponent<TextMeshProUGUI>();
     }
 
     public void PlayGame()
@@ -69,7 +74,10 @@ public class MenuController : MonoBehaviour
     public void ShowVictoryMenu()
     {
         DisableAllMenus();
+        string time = FindObjectOfType<Data_Percistence>().getEndTime();
+        textMeshProUI.text = time;
         victoryMenu.SetActive(true);
+
     }
 
     private void DisableAllMenus()
