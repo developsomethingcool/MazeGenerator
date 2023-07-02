@@ -169,7 +169,7 @@ public class PlayerMovment : MonoBehaviour
         if( Mathf.Abs(GoalAreaPositionX- pB.position.x) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 1f && Mathf.Abs(GoalAreaPositionZ - pB.position.z) < 3f && FindObjectOfType<GoalAreaRender>().goalReached())
         {
             //sets the end time
-            dp.SetEndTime(timer.endTimer());
+            dp.SetEndTime(timer.EndTimer());
             DelayedVictory();
         }
 
