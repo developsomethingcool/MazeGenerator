@@ -7,23 +7,24 @@ using Random = UnityEngine.Random;
 
 public class TrapGenerator : MonoBehaviour
 {
+    //mazegenerator needed to determin troa position
     [SerializeField] MazeGenerator mazeGenerator;
+    //maze width and lenght to place the traps
     public int mazeWidth;
     public int mazeLength;
+
+    //number of traps
     [SerializeField] int numberOfTraps = 80;
     //store traps
     private TrapCell[] cells;
     //store types of the traps
     private int[] typesTraps;
+
+    //data percistance(stores options pickt) and drapmuliplyer both used to dertmin amount of traps dynamicly
     private Data_Percistence dp;
-    private float drapMultiplyer;
+    private float trapMultiplyer;
 
 
-
-    /*private void Start()
-    {
-        cells = GetTrap();
-    } */
 
     public TrapGenerator()
     {
@@ -34,10 +35,14 @@ public class TrapGenerator : MonoBehaviour
      {
         try
         {
+            //getting the data_percistance instance
             dp = new Data_Percistence();
-            setDrapMultiplyer();
+            //setting the trapMultiplyer
+            setTrapMultiplyer();
+            //claculating the maze size
             double mazesize = Math.Pow(mazeGenerator.GetSizeMultiplyer() * dp.getMazeSize(), 2f);
-            numberOfTraps = (int)Math.Round(mazesize * drapMultiplyer);
+            //calculating the amount of traps
+            numberOfTraps = (int)Math.Round(mazesize * trapMultiplyer);
               
         }
         catch (System.Exception e)
@@ -46,27 +51,29 @@ public class TrapGenerator : MonoBehaviour
         }
     }
 
-    private void setDrapMultiplyer()
+    //Mehtod used to set the trapmultiplyer
+    private void setTrapMultiplyer()
     {
+        //Swithc case foir all options
         switch (dp.getDifficulty())
         {
             case 1:
-                drapMultiplyer = 0.07f;
+                trapMultiplyer = 0.07f; //easy = 7% traps
                 break;
             case 2:
-                drapMultiplyer = 0.08f;
+                trapMultiplyer = 0.08f;//mediusm-easy = 8% traps
                 break;
             case 3:
-                drapMultiplyer = 0.09f;
+                trapMultiplyer = 0.09f;//medium = 9% traps
                 break;
             case 4:
-                drapMultiplyer = 0.1f;
+                trapMultiplyer = 0.1f;//medium-hard = 10% traps
                 break;
             case 5:
-                drapMultiplyer = 0.2f;
+                trapMultiplyer = 0.2f;//hard = 20% traps
                 break;
             default:
-                drapMultiplyer = 0.09f;
+                trapMultiplyer = 0.09f;//default is mediusm(only occures by errors in code)
                 break;
         }
     }
@@ -76,6 +83,7 @@ public class TrapGenerator : MonoBehaviour
         //get parameters from Maze
         MazeCell[,] maze = mazeGenerator.GetMaze();
 
+        //geting maze lenght and width
         mazeLength = maze.GetLength(0);
         mazeWidth = maze.GetLength(1);
 

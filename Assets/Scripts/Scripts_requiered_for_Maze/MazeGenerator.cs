@@ -5,20 +5,30 @@ using UnityEngine;
 public class MazeGenerator : MonoBehaviour
 {
 
-
+    //Maze width and Hight
     [SerializeField] private int mazeWidth = 30;
     [SerializeField] private int mazeHeight = 30;
+
+    //Maze multiplyer used to calculate the maze hight and width acording to options-menu
     [SerializeField] private int sizeMultiplyer = 10;
+
+    //Variable needed for creating the maze
     public int startX, startY;
     MazeCell[,] maze;
     Vector2Int currentCell;
+
+    //data-percistacne saves the options for the options menu
     private Data_Percistence dp;
 
+    //Awake funktion
     private void Awake()
     {
         try
         {
+            //getting the data-percistence 
             dp = new Data_Percistence();
+
+            //chaning hight and widght
             mazeWidth = dp.getMazeSize() * sizeMultiplyer;
             mazeHeight = dp.getMazeSize() * sizeMultiplyer;
 
@@ -29,6 +39,9 @@ public class MazeGenerator : MonoBehaviour
         }
     }
 
+    /**
+     * Getter and setter Methods-> no comments needed
+     */
     public int GetMazeWidth()
     {
         return mazeWidth;
@@ -43,6 +56,8 @@ public class MazeGenerator : MonoBehaviour
     {
         return sizeMultiplyer;
     }
+
+
 
     public MazeCell[,] GetMaze()
     {

@@ -65,17 +65,7 @@ public class Weapon : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (isCheckingCollision)
-        {
-            if (other.gameObject.tag != "Untagged")
-            {
-                if(other.gameObject.tag == "Enemy")
-                {
-                    Debug.Log(other.gameObject.name);
-                }
-
-            }
-            
-
+        { 
             if (targetTag.Equals(other.gameObject.tag))
             {
                 if (!player) //When carryer isn't the player

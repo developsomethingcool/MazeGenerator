@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    //All for ui screens
     public GameObject mainMenu;
     public GameObject options;
     public GameObject gameoverMenu;

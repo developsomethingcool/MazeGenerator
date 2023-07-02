@@ -42,13 +42,7 @@ public class TrapRender : MonoBehaviour
                 GameObject newTrap = Instantiate(TrapCellPrefab_sphere, new Vector3((float)trap[x].x * CellSize, 0f, (float)trap[x].y * CellSize), Quaternion.identity);
 
             }
-
-            //maze[trap[x].x, trap[x].y].setVisibility(false);
-            // Get a reference to the cell's MazeCellPrefab script.
-            //TrapCellObject trapCell = newTrap.GetComponent<TrapCellObject>();
-            //trapCell.Init(true, true, true, true);
-            //newTrap.name = "Trap" + trapCounter.ToString();
-            //trapCounter++;        
+       
         }
 
     }
