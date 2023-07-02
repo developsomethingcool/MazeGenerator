@@ -156,10 +156,61 @@ In the asset folder of our project one can find several folders
 
 
 4. Random Maze Generation
+    The Unity project features a random maze generation system that creates unique mazes for players to navigate. The maze generation process follows the following steps:
 
-5. Options Menu
+    1. **Creating the Maze Cells**: A predefined number of maze cells is generated, with each cell initially containing all four walls.
 
-6. HUD Functionality
+    2. **Grid-based Movement System**: The project implements a grid-based movement system where the player character traverses through a grid of walls. The maze consists of two types of cells: valid cells and non-valid cells.
+
+    3. **Valid and Non-Valid Cells**: Valid cells are those that the player character can visit, while non-valid cells include cells that have already been visited or cells located at the edge of the map. If the player character attempts to move to a cell outside the map boundaries or has already visited a cell, it is considered non-valid.
+
+    4. **Exploration Algorithm**: To explore the maze, a simple algorithm is employed. The algorithm traverses through the maze, marking visited cells and identifying dead ends where there are no valid neighboring cells to move to.
+
+    5. **Retracing Steps**: When the algorithm encounters a dead end, it backtracks its steps until it finds a valid neighboring cell. Once a valid neighbor is found, the algorithm resumes its exploration from that point.
+
+    6. **Destruction of Walls**: As the player character moves through the maze, it destroys the walls it crosses. This dynamic wall destruction results in a unique labyrinth every time the maze is generated.
+
+    By utilizing this random maze generation system, players can enjoy exploring new and diverse mazes in each playthrough, enhancing the overall gameplay experience.
+
+5. Trapgeneration
+
+6. Menu
+    The game features four distinct menus that provide players with various options and interactions. Each menu serves a specific purpose and enhances the overall user experience. Here are the details of each menu:
+
+    ## Main Menu
+
+    The Main Menu serves as the entry point to the game and offers the following options:
+
+        - Game Name: The Main Menu prominently displays the game's name, providing a visual identity and setting the tone for the gameplay experience.
+        - Play Button: The Play Button allows players to start a new game or continue from a saved game, initiating the gameplay and immersing players in the maze-solving adventure.
+        - Options Button: The Options Button opens the Options Menu, allowing players to customize certain game settings, such as maze size and difficulty level, to tailor the gameplay experience to their preferences.
+        - Quit Button: The Quit Button provides an option to exit the game gracefully, allowing players to easily close the application when desired.
+
+    ## Options Menu
+
+    The Options Menu allows players to adjust specific game settings and fine-tune their gameplay experience. It offers the following features:
+
+        - Maze Size Slider: The Maze Size Slider enables players to adjust the size of the maze they will be navigating. The slider typically has five resting points, allowing players to choose between different levels of complexity and challenge.
+        - Difficulty Slider: The Difficulty Slider allows players to customize the game's difficulty level. With five resting points, players can select their preferred level of challenge, balancing the gameplay experience to suit their skills and preferences.
+
+    ## Death Screen
+
+        The Death Screen is displayed when the player character fails to successfully navigate the maze. It provides the following options:
+
+        - Restart: The Restart option allows players to restart the maze from the beginning, providing an opportunity to improve their performance and overcome challenges.
+        - Menu: The Menu option returns players to the Main Menu, providing an alternative path to explore different game modes or settings.
+
+    ## Victory Screen
+
+    The Victory Screen appears when the player successfully completes the maze, showcasing their accomplishment and offering the following options:
+
+    - Congratulations: The Victory Screen displays a congratulatory message, celebrating the player's achievement and creating a sense of accomplishment.
+    - Time Taken: The Victory Screen also reveals the time taken to complete the maze, providing a benchmark for players to challenge themselves and improve their speed.
+    - Main Menu: The Main Menu option allows players to return to the Main Menu, providing an opportunity to explore different game modes, restart the game, or adjust settings.
+
+    The menu system in the game enhances user engagement and provides convenient access to game features, settings, and progress. With intuitive navigation and clear options, players can easily navigate the menus, customize their gameplay experience, and continue their journey through the maze-solving adventure.
+
+7. HUD Functionality
 
     The Heads-Up Display (HUD) in this Unity project provides players with important information and visual feedback to enhance their gameplay experience. The HUD includes the following elements:
 
@@ -177,7 +228,7 @@ In the asset folder of our project one can find several folders
 
     The HUD elements are strategically placed on the screen to minimize distractions while providing crucial information to players. The Health Indicator, Current Goal Display, and Timer work together to enhance player immersion, improve situational awareness, and create a dynamic gameplay experience.
 
-7. Camera Functionality
+8. Camera Functionality
 
     The camera system in this Unity project is based on Cinemachine, offering smooth and immersive gameplay perspectives. The camera allows players to seamlessly switch between a third-person view and a first-person view by pressing the "O" button. Here are the details of the camera functionality:
 
