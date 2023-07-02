@@ -276,7 +276,7 @@ In the asset folder of our project one can find several folders
 
 1. Clone the repository: Start by cloning the repository to your local machine using the following command:
 
-"git clone <repository-url>"
+- "git clone <'repository-url'>"
 
 2. Build and run the game: Once you have the repository cloned, open the project in your preferred game development environment (e.g., Unity) and build the game. Run the built executable to launch the game.
 
