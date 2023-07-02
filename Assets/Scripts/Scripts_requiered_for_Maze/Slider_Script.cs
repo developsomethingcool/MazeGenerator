@@ -21,8 +21,20 @@ public class Slider_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //getting the data:percistance instance
+        
         dp = new Data_Percistence();
+
+        //setting the slider values to the value in dataPercistance (Standart = 3)
+        //When slider belongs to difficulty we adjust it to the difficulty level
+        if (diff)
+        {
+            slider.value = dp.getDifficulty();
+        }
+        else//we adjust it to maze size level
+        {
+            slider.value = dp.getMazeSize();
+        }
+         
 
         //adding a Listener to the slider
         slider.onValueChanged.AddListener((v) =>
