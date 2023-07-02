@@ -181,24 +181,24 @@ In the asset folder of our project one can find several folders
 
     The Main Menu serves as the entry point to the game and offers the following options:
 
-        - Game Name: The Main Menu prominently displays the game's name, providing a visual identity and setting the tone for the gameplay experience.
-        - Play Button: The Play Button allows players to start a new game or continue from a saved game, initiating the gameplay and immersing players in the maze-solving adventure.
-        - Options Button: The Options Button opens the Options Menu, allowing players to customize certain game settings, such as maze size and difficulty level, to tailor the gameplay experience to their preferences.
-        - Quit Button: The Quit Button provides an option to exit the game gracefully, allowing players to easily close the application when desired.
+    - Game Name: The Main Menu prominently displays the game's name, providing a visual identity and setting the tone for the gameplay experience.
+    - Play Button: The Play Button allows players to start a new game or continue from a saved game, initiating the gameplay and immersing players in the maze-solving adventure.
+    - Options Button: The Options Button opens the Options Menu, allowing players to customize certain game settings, such as maze size and difficulty level, to tailor the gameplay experience to their preferences.
+    - Quit Button: The Quit Button provides an option to exit the game gracefully, allowing players to easily close the application when desired.
 
     ## Options Menu
 
     The Options Menu allows players to adjust specific game settings and fine-tune their gameplay experience. It offers the following features:
 
-        - Maze Size Slider: The Maze Size Slider enables players to adjust the size of the maze they will be navigating. The slider typically has five resting points, allowing players to choose between different levels of complexity and challenge.
-        - Difficulty Slider: The Difficulty Slider allows players to customize the game's difficulty level. With five resting points, players can select their preferred level of challenge, balancing the gameplay experience to suit their skills and preferences.
+    - Maze Size Slider: The Maze Size Slider enables players to adjust the size of the maze they will be navigating. The slider typically has five resting points, allowing players to choose between different levels of complexity and challenge.
+    - Difficulty Slider: The Difficulty Slider allows players to customize the game's difficulty level. With five resting points, players can select their preferred level of challenge, balancing the gameplay experience to suit their skills and preferences.
 
     ## Death Screen
 
-        The Death Screen is displayed when the player character fails to successfully navigate the maze. It provides the following options:
+    The Death Screen is displayed when the player character fails to successfully navigate the maze. It provides the following options:
 
-        - Restart: The Restart option allows players to restart the maze from the beginning, providing an opportunity to improve their performance and overcome challenges.
-        - Menu: The Menu option returns players to the Main Menu, providing an alternative path to explore different game modes or settings.
+    - Restart: The Restart option allows players to restart the maze from the beginning, providing an opportunity to improve their performance and overcome challenges.
+    - Menu: The Menu option returns players to the Main Menu, providing an alternative path to explore different game modes or settings.
 
     ## Victory Screen
 
