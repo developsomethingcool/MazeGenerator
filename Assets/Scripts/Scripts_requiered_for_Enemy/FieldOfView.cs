@@ -22,24 +22,31 @@ public class FieldOfView : MonoBehaviour
         StartCoroutine(FOVRoutine()); // Start the field of view routine
     }
 
+    //Seting method for setting variables like the radius of targetmask
     public void SetVariable(float radius, LayerMask targetMask)
     {
-        this.radius = radius;
-        this.targetMask = targetMask;
+        this.radius = radius; //radius represents the viewrange go the enemy
+        this.targetMask = targetMask; // represent the layer on which the enemy is on
     }
 
+    //IEnumerator used to not check for the player every frame but only 5 times oer second;
     private IEnumerator FOVRoutine()
     {
-        float delay = 0.2f;
-        WaitForSeconds wait = new WaitForSeconds(delay);
+        float delay = 0.2f; //delay representin how many seconds this IEnumerator should wait
+        WaitForSeconds wait = new WaitForSeconds(delay); //formulating the delay in terms of WaitforSeconds
 
         while (true)
         {
-            yield return wait;
+            yield return wait; //telling the IEnumerator to wait for our delay
             FieldofViewCheck(); // Perform field of view check
         }
     }
 
+    /**
+     * This funktionis used to check if the player is in sight range of the enemy
+     * + the player is not obstructed by a wall
+     * + the player is inside a given angle of the forward direction of the enemy
+     */
     private void FieldofViewCheck()
     {
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask); // Perform overlap sphere check
